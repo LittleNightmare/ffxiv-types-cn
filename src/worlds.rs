@@ -1,4 +1,5 @@
 use data_centers::DataCenter;
+use errors::UnknownVariant;
 
 use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::str::FromStr;
@@ -322,7 +323,7 @@ impl World {
 }
 
 impl FromStr for World {
-  type Err = ();
+  type Err = UnknownVariant;
 
   fn from_str(s: &str) -> Result<Self, Self::Err> {
     let world = match s.to_lowercase().as_str() {
@@ -398,7 +399,7 @@ impl FromStr for World {
       "malboro" => World::Malboro,
       "ultros" => World::Ultros,
 
-      _ => return Err(())
+      _ => return Err(UnknownVariant("World", s.into()))
     };
 
     Ok(world)

@@ -1,3 +1,5 @@
+use errors::UnknownVariant;
+
 use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::str::FromStr;
 
@@ -34,7 +36,7 @@ impl DataCenter {
 }
 
 impl FromStr for DataCenter {
-  type Err = ();
+  type Err = UnknownVariant;
 
   fn from_str(s: &str) -> Result<Self, Self::Err> {
     let data_center = match s.to_lowercase().as_str() {
@@ -44,7 +46,7 @@ impl FromStr for DataCenter {
       "gaia" => DataCenter::Gaia,
       "mana" => DataCenter::Mana,
       "primal" => DataCenter::Primal,
-      _ => return Err(())
+      _ => return Err(UnknownVariant("DataCenter", s.into()))
     };
 
     Ok(data_center)

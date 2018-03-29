@@ -1,4 +1,5 @@
 pub mod data_centers;
+pub mod errors;
 pub mod jobs;
 pub mod roles;
 pub mod worlds;

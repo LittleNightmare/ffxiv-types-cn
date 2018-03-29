@@ -1,3 +1,5 @@
+use errors::UnknownVariant;
+
 use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::str::FromStr;
 
@@ -21,14 +23,14 @@ impl Role {
 }
 
 impl FromStr for Role {
-  type Err = ();
+  type Err = UnknownVariant;
 
   fn from_str(s: &str) -> Result<Self, Self::Err> {
     let role = match s.to_lowercase().as_str() {
       "dps" => Role::Dps,
       "healer" => Role::Healer,
       "tank" => Role::Tank,
-      _ => return Err(())
+      _ => return Err(UnknownVariant("Role", s.into()))
     };
 
     Ok(role)
