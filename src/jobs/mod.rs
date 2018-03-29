@@ -1,9 +1,18 @@
+//! Job types
+
+pub mod classification;
+pub mod non_combat;
+
+pub use self::classification::Classification;
+pub use self::non_combat::NonCombatJob;
+
 use errors::UnknownVariant;
 use roles::Role;
 
 use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::str::FromStr;
 
+/// The Disciple of War and Disciple of Magic jobs available in the game.
 #[derive(Debug, Clone, Copy)]
 pub enum Job {
   // DPS
@@ -52,6 +61,9 @@ impl Job {
     Job::Warrior,
   ];
 
+  /// Returns the string representation of this job.
+  ///
+  /// Jobs are title-cased and have spaces between words (e.g. "Bard" and "Black Mage").
   pub fn as_str(&self) -> &'static str {
     match *self {
       Job::Bard => "Bard",
@@ -74,6 +86,7 @@ impl Job {
     }
   }
 
+  /// Returns the [`Role`] for this job.
   pub fn role(&self) -> Role {
     match *self {
       Job::Bard |
@@ -95,11 +108,39 @@ impl Job {
       Job::Warrior => Role::Tank,
     }
   }
+
+  /// Returns the [`Classification`] for this job.
+  pub fn classification(&self) -> Classification {
+    match *self {
+      Job::Bard |
+      Job::DarkKnight |
+      Job::Dragoon |
+      Job::Machinist |
+      Job::Monk |
+      Job::Ninja |
+      Job::Paladin |
+      Job::Samurai |
+      Job::Warrior => Classification::War,
+
+      Job::Astrologian |
+      Job::BlackMage |
+      Job::RedMage |
+      Job::Scholar |
+      Job::Summoner |
+      Job::WhiteMage => Classification::Magic,
+    }
+  }
 }
 
 impl FromStr for Job {
   type Err = UnknownVariant;
 
+  /// Parses a string `s` to return a value of this type.
+  ///
+  /// This accepts the name of the variant as a string, the name of the variant as a string with
+  /// spaces between words, and the shortened job code for each variant (e.g. "BLM" for Black Mage).
+  ///
+  /// This is case-insensitive.
   fn from_str(s: &str) -> Result<Self, Self::Err> {
     let job = match s.to_lowercase().as_str() {
       "bard" | "brd" => Job::Bard,
