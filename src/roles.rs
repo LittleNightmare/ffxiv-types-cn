@@ -7,7 +7,9 @@ use std::str::FromStr;
 
 /// The roles available in the game.
 ///
-/// Each [Job] has a role attached to it.
+/// Each [`Job`] has a role attached to it.
+///
+/// [`Job`]: ::jobs::Job
 #[derive(Debug, Clone, Copy)]
 pub enum Role {
   Dps,

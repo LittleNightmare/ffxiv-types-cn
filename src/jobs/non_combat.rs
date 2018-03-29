@@ -1,5 +1,6 @@
 //! Non-combat job types
 
+#[cfg(feature = "job_classifications")]
 use jobs::classification::Classification;
 use errors::UnknownVariant;
 
@@ -58,6 +59,7 @@ impl NonCombatJob {
     }
   }
 
+  #[cfg(feature = "job_classifications")]
   pub fn classification(&self) -> Classification {
     match *self {
       NonCombatJob::Botanist |

@@ -1,5 +1,6 @@
 //! World types
 
+#[cfg(feature = "data_centers")]
 use data_centers::DataCenter;
 use errors::UnknownVariant;
 
@@ -249,6 +250,7 @@ impl World {
   }
 
   /// Returns the [`DataCenter`] this world is on.
+  #[cfg(feature = "data_centers")]
   pub fn data_center(&self) -> DataCenter {
     match *self {
       World::Adamantoise |

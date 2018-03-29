@@ -3,4 +3,21 @@ name = "ffxiv_types"
 version = "0.1.0"
 authors = ["Kyle Clemens <git@kyleclemens.com>"]
 
+[features]
+default = ["jobs", "roles", "data_centers", "worlds"]
+
+# Job-related
+jobs = ["combat_jobs", "non_combat_jobs", "job_classifications"]
+combat_jobs = []
+non_combat_jobs = []
+job_classifications = []
+
+# Roles
+roles = []
+
+# World-related
+data_centers = []
+worlds = []
+
+
 [dependencies]
