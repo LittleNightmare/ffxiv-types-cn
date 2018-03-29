@@ -1,8 +1,13 @@
+//! Job role types
+
 use errors::UnknownVariant;
 
 use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::str::FromStr;
 
+/// The roles available in the game.
+///
+/// Each [Job] has a role attached to it.
 #[derive(Debug, Clone, Copy)]
 pub enum Role {
   Dps,

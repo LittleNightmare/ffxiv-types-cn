@@ -1,3 +1,5 @@
+//! Data center types
+
 use errors::UnknownVariant;
 
 use std::fmt::{Display, Formatter, Result as FmtResult};

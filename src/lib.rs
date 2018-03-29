@@ -1,3 +1,5 @@
+//! Types for use in FFXIV-related projects.
+
 pub mod data_centers;
 pub mod errors;
 pub mod jobs;

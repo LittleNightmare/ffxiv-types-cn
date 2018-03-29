@@ -1,3 +1,5 @@
+//! World types
+
 use data_centers::DataCenter;
 use errors::UnknownVariant;
 
@@ -6,7 +8,7 @@ use std::str::FromStr;
 
 /// The worlds, sometimes called servers, in the game.
 ///
-/// Each [Data Center] has multiple worlds attached to it.
+/// Each [`DataCenter`] has multiple worlds attached to it.
 #[derive(Debug, Clone, Copy)]
 pub enum World {
   // Aether
@@ -169,6 +171,7 @@ impl World {
     World::Ultros,
   ];
 
+  /// Returns the string variant of this world.
   pub fn as_str(&self) -> &'static str {
     match *self {
       World::Adamantoise => "Adamantoise",
@@ -245,6 +248,7 @@ impl World {
     }
   }
 
+  /// Returns the [`DataCenter`] this world is on.
   pub fn data_center(&self) -> DataCenter {
     match *self {
       World::Adamantoise |
@@ -325,6 +329,9 @@ impl World {
 impl FromStr for World {
   type Err = UnknownVariant;
 
+  /// Parses a string `s` to return a value of this type.
+  ///
+  /// This is case-insensitive.
   fn from_str(s: &str) -> Result<Self, Self::Err> {
     let world = match s.to_lowercase().as_str() {
       "adamantoise" => World::Adamantoise,
