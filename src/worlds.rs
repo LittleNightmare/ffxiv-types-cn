@@ -92,6 +92,7 @@ pub enum World {
 }
 
 impl World {
+  #[cfg(feature = "all_const")]
   pub const ALL: [World; 66] = [
     // Aether
     World::Adamantoise,

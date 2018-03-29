@@ -27,6 +27,7 @@ pub enum NonCombatJob {
 }
 
 impl NonCombatJob {
+  #[cfg(feature = "all_const")]
   pub const ALL: [NonCombatJob; 11] = [
     NonCombatJob::Botanist,
     NonCombatJob::Fisher,

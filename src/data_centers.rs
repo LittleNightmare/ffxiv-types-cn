@@ -16,6 +16,7 @@ pub enum DataCenter {
 }
 
 impl DataCenter {
+  #[cfg(feature = "all_const")]
   pub const ALL: [DataCenter; 6] = [
     DataCenter::Aether,
     DataCenter::Chaos,

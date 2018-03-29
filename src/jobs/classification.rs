@@ -20,6 +20,7 @@ pub enum Classification {
 }
 
 impl Classification {
+  #[cfg(feature = "all_const")]
   pub const ALL: [Classification; 4] = [
     Classification::War,
     Classification::Magic,

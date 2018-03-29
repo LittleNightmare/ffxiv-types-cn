@@ -35,6 +35,7 @@ pub enum Job {
 }
 
 impl Job {
+  #[cfg(feature = "all_const")]
   pub const ALL: [Job; 15] = [
     // DPS
     Job::Bard,

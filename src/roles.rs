@@ -18,6 +18,7 @@ pub enum Role {
 }
 
 impl Role {
+  #[cfg(feature = "all_const")]
   pub const ALL: [Role; 3] = [Role::Dps, Role::Healer, Role::Tank];
 
   pub fn as_str(&self) -> &'static str {

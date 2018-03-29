@@ -4,7 +4,10 @@ version = "0.1.0"
 authors = ["Kyle Clemens <git@kyleclemens.com>"]
 
 [features]
-default = ["jobs", "roles", "data_centers", "worlds"]
+default = ["jobs", "roles", "data_centers", "worlds", "all_const"]
+
+# Every type
+all_const = []
 
 # Job-related
 jobs = ["combat_jobs", "non_combat_jobs", "job_classifications"]
