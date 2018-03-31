@@ -84,18 +84,18 @@ impl FromStr for NonCombatJob {
 
   fn from_str(s: &str) -> Result<Self, Self::Err> {
     let job = match s.to_lowercase().as_str() {
-      "botanist" => NonCombatJob::Botanist,
-      "fisher" => NonCombatJob::Fisher,
-      "miner" => NonCombatJob::Miner,
+      "botanist" | "btn" => NonCombatJob::Botanist,
+      "fisher" | "fsh" => NonCombatJob::Fisher,
+      "miner" | "min" => NonCombatJob::Miner,
 
-      "alchemist" => NonCombatJob::Alchemist,
-      "armorer" => NonCombatJob::Armorer,
-      "blacksmith" => NonCombatJob::Blacksmith,
-      "carpenter" => NonCombatJob::Carpenter,
-      "culinarian" => NonCombatJob::Culinarian,
-      "goldsmith" => NonCombatJob::Goldsmith,
-      "leatherworker" => NonCombatJob::Leatherworker,
-      "weaver" => NonCombatJob::Weaver,
+      "alchemist" | "alc" => NonCombatJob::Alchemist,
+      "armorer" | "arm" => NonCombatJob::Armorer,
+      "blacksmith" | "bsm" => NonCombatJob::Blacksmith,
+      "carpenter" | "crp" => NonCombatJob::Carpenter,
+      "culinarian" | "cul" => NonCombatJob::Culinarian,
+      "goldsmith" | "gsm" => NonCombatJob::Goldsmith,
+      "leatherworker" | "ltw" => NonCombatJob::Leatherworker,
+      "weaver" | "wvr" => NonCombatJob::Weaver,
       _ => return Err(UnknownVariant("NonCombatJob", s.into()))
     };
 
