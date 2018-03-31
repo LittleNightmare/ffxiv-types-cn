@@ -11,6 +11,7 @@ use std::str::FromStr;
 ///
 /// [`Job`]: ::jobs::Job
 #[derive(Debug, Clone, Copy)]
+#[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
 pub enum Role {
   Dps,
   Healer,

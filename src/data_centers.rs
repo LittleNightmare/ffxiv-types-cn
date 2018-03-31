@@ -6,6 +6,7 @@ use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::str::FromStr;
 
 #[derive(Debug, Clone, Copy)]
+#[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
 pub enum DataCenter {
   Aether,
   Chaos,

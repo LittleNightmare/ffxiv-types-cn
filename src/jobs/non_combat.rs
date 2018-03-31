@@ -9,6 +9,7 @@ use std::str::FromStr;
 
 /// The Disciple of the Land and Disciple of the Hand jobs available in the game.
 #[derive(Debug, Clone, Copy)]
+#[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
 pub enum NonCombatJob {
   // Gatherers
   Botanist,

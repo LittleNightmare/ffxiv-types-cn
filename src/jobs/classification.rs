@@ -12,6 +12,7 @@ use std::str::FromStr;
 /// [`Job`]: ::jobs::Job
 /// [`NonCombatJob`]: ::jobs::NonCombatJob
 #[derive(Debug, Clone, Copy)]
+#[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
 pub enum Classification {
   War,
   Magic,

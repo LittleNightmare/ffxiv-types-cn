@@ -1,5 +1,9 @@
 //! Types for use in FFXIV-related projects.
 
+#[cfg(feature = "with_serde")]
+#[macro_use]
+extern crate serde_derive;
+
 #[cfg(feature = "data_centers")]
 pub mod data_centers;
 pub mod errors;
