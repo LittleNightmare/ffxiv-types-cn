@@ -85,6 +85,31 @@ impl Job {
     }
   }
 
+  /// Returns the short code of this job.
+  ///
+  /// Short codes are fully capitalized (e.g. "BRD", "BLM").
+  pub fn as_code(&self) -> &'static str {
+    match *self {
+      Job::Bard => "BRD",
+      Job::BlackMage => "BLM",
+      Job::Dragoon => "DRG",
+      Job::Machinist => "MCH",
+      Job::Monk => "MNK",
+      Job::Ninja => "NIN",
+      Job::RedMage => "RDM",
+      Job::Samurai => "SAM",
+      Job::Summoner => "SMN",
+
+      Job::Astrologian => "AST",
+      Job::Scholar => "SCH",
+      Job::WhiteMage => "WHM",
+
+      Job::DarkKnight => "DRK",
+      Job::Paladin => "PLD",
+      Job::Warrior => "WAR",
+    }
+  }
+
   /// Returns the [`Role`] for this job.
   #[cfg(feature = "roles")]
   pub fn role(&self) -> Role {

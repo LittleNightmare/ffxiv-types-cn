@@ -61,6 +61,23 @@ impl NonCombatJob {
     }
   }
 
+  pub fn as_code(&self) -> &'static str {
+    match *self {
+      NonCombatJob::Botanist => "BTN",
+      NonCombatJob::Fisher => "FSH",
+      NonCombatJob::Miner => "MIN",
+
+      NonCombatJob::Alchemist => "ALC",
+      NonCombatJob::Armorer => "ARM",
+      NonCombatJob::Blacksmith => "BSM",
+      NonCombatJob::Carpenter => "CRP",
+      NonCombatJob::Culinarian => "CUL",
+      NonCombatJob::Goldsmith => "GSM",
+      NonCombatJob::Leatherworker => "LTW",
+      NonCombatJob::Weaver => "WVR",
+    }
+  }
+
   #[cfg(feature = "job_classifications")]
   pub fn classification(&self) -> Classification {
     match *self {
