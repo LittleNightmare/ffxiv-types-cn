@@ -61,7 +61,7 @@ impl NonCombatJob {
     }
   }
 
-  pub fn as_code(&self) -> &'static str {
+  pub fn code(&self) -> &'static str {
     match *self {
       NonCombatJob::Botanist => "BTN",
       NonCombatJob::Fisher => "FSH",

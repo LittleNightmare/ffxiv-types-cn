@@ -88,7 +88,7 @@ impl Job {
   /// Returns the short code of this job.
   ///
   /// Short codes are fully capitalized (e.g. "BRD", "BLM").
-  pub fn as_code(&self) -> &'static str {
+  pub fn code(&self) -> &'static str {
     match *self {
       Job::Bard => "BRD",
       Job::BlackMage => "BLM",
