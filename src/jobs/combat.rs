@@ -60,10 +60,33 @@ impl Job {
     Job::Warrior,
   ];
 
-  /// Returns the string representation of this job.
-  ///
-  /// Jobs are title-cased and have spaces between words (e.g. "Bard" and "Black Mage").
+  /// Returns the string representation of this variant.
   pub fn as_str(&self) -> &'static str {
+    match *self {
+      Job::Bard => "Bard",
+      Job::BlackMage => "BlackMage",
+      Job::Dragoon => "Dragoon",
+      Job::Machinist => "Machinist",
+      Job::Monk => "Monk",
+      Job::Ninja => "Ninja",
+      Job::RedMage => "RedMage",
+      Job::Samurai => "Samurai",
+      Job::Summoner => "Summoner",
+
+      Job::Astrologian => "Astrologian",
+      Job::Scholar => "Scholar",
+      Job::WhiteMage => "WhiteMage",
+
+      Job::DarkKnight => "DarkKnight",
+      Job::Paladin => "Paladin",
+      Job::Warrior => "Warrior",
+    }
+  }
+
+  /// Returns the name of this job.
+  ///
+  /// Names are title-cased and have spaces between words (e.g. "Bard" and "Black Mage").
+  pub fn name(&self) -> &'static str {
     match *self {
       Job::Bard => "Bard",
       Job::BlackMage => "Black Mage",
@@ -196,6 +219,6 @@ impl FromStr for Job {
 
 impl Display for Job {
   fn fmt(&self, f: &mut Formatter) -> FmtResult {
-    write!(f, "{}", self.as_str())
+    write!(f, "{}", self.name())
   }
 }

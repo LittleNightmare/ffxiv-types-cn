@@ -31,6 +31,15 @@ impl Classification {
 
   pub fn as_str(&self) -> &'static str {
     match *self {
+      Classification::War => "War",
+      Classification::Magic => "Magic",
+      Classification::Land => "Land",
+      Classification::Hand => "Hand",
+    }
+  }
+
+  pub fn name(&self) -> &'static str {
+    match *self {
       Classification::War => "Disciple of War",
       Classification::Magic => "Disciple of Magic",
       Classification::Land => "Disciple of the Land",
@@ -57,6 +66,6 @@ impl FromStr for Classification {
 
 impl Display for Classification {
   fn fmt(&self, f: &mut Formatter) -> FmtResult {
-    write!(f, "{}", self.as_str())
+    write!(f, "{}", self.name())
   }
 }

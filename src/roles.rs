@@ -24,6 +24,14 @@ impl Role {
 
   pub fn as_str(&self) -> &'static str {
     match *self {
+      Role::Dps => "Dps",
+      Role::Healer => "Healer",
+      Role::Tank => "Tank",
+    }
+  }
+
+  pub fn name(&self) -> &'static str {
+    match *self {
       Role::Dps => "DPS",
       Role::Healer => "Healer",
       Role::Tank => "Tank",
@@ -48,6 +56,6 @@ impl FromStr for Role {
 
 impl Display for Role {
   fn fmt(&self, f: &mut Formatter) -> FmtResult {
-    write!(f, "{}", self.as_str())
+    write!(f, "{}", self.name())
   }
 }

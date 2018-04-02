@@ -251,6 +251,11 @@ impl World {
     }
   }
 
+  pub fn name(&self) -> &'static str {
+    // if any variants with spaces are added, this must be changed
+    self.as_str()
+  }
+
   /// Returns the [`DataCenter`] this world is on.
   #[cfg(feature = "data_centers")]
   pub fn data_center(&self) -> DataCenter {
@@ -419,6 +424,6 @@ impl FromStr for World {
 
 impl Display for World {
   fn fmt(&self, f: &mut Formatter) -> FmtResult {
-    write!(f, "{}", self.as_str())
+    write!(f, "{}", self.name())
   }
 }

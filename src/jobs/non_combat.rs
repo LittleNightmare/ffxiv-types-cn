@@ -61,6 +61,11 @@ impl NonCombatJob {
     }
   }
 
+  pub fn name(&self) -> &'static str {
+    // if any variants with spaces are added, this must be changed
+    self.as_str()
+  }
+
   pub fn code(&self) -> &'static str {
     match *self {
       NonCombatJob::Botanist => "BTN",
@@ -123,6 +128,6 @@ impl FromStr for NonCombatJob {
 
 impl Display for NonCombatJob {
   fn fmt(&self, f: &mut Formatter) -> FmtResult {
-    write!(f, "{}", self.as_str())
+    write!(f, "{}", self.name())
   }
 }

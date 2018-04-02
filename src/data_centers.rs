@@ -37,6 +37,11 @@ impl DataCenter {
       DataCenter::Primal => "Primal",
     }
   }
+
+  pub fn name(&self) -> &'static str {
+    // if any variants with spaces are added, this must be changed
+    self.as_str()
+  }
 }
 
 impl FromStr for DataCenter {
@@ -59,6 +64,6 @@ impl FromStr for DataCenter {
 
 impl Display for DataCenter {
   fn fmt(&self, f: &mut Formatter) -> FmtResult {
-    write!(f, "{}", self.as_str())
+    write!(f, "{}", self.name())
   }
 }
