@@ -8,7 +8,7 @@ repository = "https://github.com/jkcclemens/ffxiv_types"
 license = "MIT"
 
 [features]
-default = ["jobs", "roles", "data_centers", "worlds", "all_const"]
+default = ["jobs", "roles", "data_centers", "worlds", "races", "clans", "all_const"]
 
 # Every type
 all_const = []
@@ -25,6 +25,10 @@ roles = []
 # World-related
 data_centers = []
 worlds = []
+
+# Character-related
+races = []
+clans = []
 
 # Serde support
 with_serde = ["serde", "serde_derive"]
