@@ -9,6 +9,8 @@ pub mod clans;
 #[cfg(feature = "data_centers")]
 pub mod data_centers;
 pub mod errors;
+#[cfg(feature = "guardians")]
+pub mod guardians;
 pub mod jobs;
 #[cfg(feature = "races")]
 pub mod races;
@@ -21,6 +23,8 @@ pub mod worlds;
 pub use self::clans::Clan;
 #[cfg(feature = "data_centers")]
 pub use self::data_centers::DataCenter;
+#[cfg(feature = "guardians")]
+pub use self::guardians::Guardian;
 #[cfg(feature = "combat_jobs")]
 pub use self::jobs::Job;
 #[cfg(feature = "non_combat_jobs")]
