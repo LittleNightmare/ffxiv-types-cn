@@ -61,7 +61,7 @@ impl Race {
       Race::Elezen => [Clan::Duskwight, Clan::Wildwood],
       Race::Hyur => [Clan::Highlander, Clan::Midlander],
       Race::Lalafell => [Clan::Dunesfolk, Clan::Plainsfolk],
-      Race::Miqote => [Clan::SeekerOfTheMoon, Clan::SeekerOfTheSun],
+      Race::Miqote => [Clan::KeeperOfTheMoon, Clan::SeekerOfTheSun],
       Race::Roegadyn => [Clan::Hellsguard, Clan::SeaWolf],
     }
   }
