@@ -10,7 +10,7 @@ use std::str::FromStr;
 /// The worlds, sometimes called servers, in the game.
 ///
 /// Each [`DataCenter`] has multiple worlds attached to it.
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
 pub enum World {
   // Aether

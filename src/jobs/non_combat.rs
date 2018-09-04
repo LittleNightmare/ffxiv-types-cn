@@ -8,7 +8,7 @@ use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::str::FromStr;
 
 /// The Disciple of the Land and Disciple of the Hand jobs available in the game.
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
 pub enum NonCombatJob {
   // Gatherers

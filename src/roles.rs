@@ -10,7 +10,7 @@ use std::str::FromStr;
 /// Each [`Job`] has a role attached to it.
 ///
 /// [`Job`]: ::jobs::Job
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
 pub enum Role {
   Dps,
