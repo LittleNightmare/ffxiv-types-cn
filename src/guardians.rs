@@ -8,6 +8,7 @@ use std::str::FromStr;
 /// The guardian deities in the game.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
+#[cfg_attr(feature = "with_serde", serde(rename_all = "snake_case"))]
 pub enum Guardian {
   Althyk,
   Azeyma,
