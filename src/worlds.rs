@@ -12,7 +12,6 @@ use std::str::FromStr;
 /// Each [`DataCenter`] has multiple worlds attached to it.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
-#[cfg_attr(feature = "with_serde", serde(rename_all = "snake_case"))]
 pub enum World {
   // Aether
   Adamantoise,

@@ -11,7 +11,6 @@ use std::str::FromStr;
 /// The clans of the playable races in the game.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
-#[cfg_attr(feature = "with_serde", serde(rename_all = "snake_case"))]
 pub enum Clan {
   // Au Ra
   Raen,

@@ -12,7 +12,6 @@ use std::str::FromStr;
 /// The Disciple of War and Disciple of Magic jobs available in the game.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
-#[cfg_attr(feature = "with_serde", serde(rename_all = "snake_case"))]
 pub enum Job {
   // DPS
   Bard,
