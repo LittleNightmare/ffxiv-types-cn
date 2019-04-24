@@ -15,30 +15,30 @@ use std::str::FromStr;
 pub enum World {
   // Aether
   Adamantoise,
-  Balmung,
   Cactuar,
-  Coeurl,
   Faerie,
   Gilgamesh,
-  Goblin,
   Jenova,
-  Mateus,
   Midgardsormr,
   Sargatanas,
   Siren,
-  Zalera,
 
   // Chaos
   Cerberus,
-  Lich,
   Louisoix,
   Moogle,
-  Odin,
   Omega,
-  Phoenix,
   Ragnarok,
-  Shiva,
-  Zodiark,
+
+  // Crystal
+  Balmung,
+  Brynhildr,
+  Coeurl,
+  Diabolos,
+  Goblin,
+  Malboro,
+  Mateus,
+  Zalera,
 
   // Elemental
   Aegis,
@@ -65,6 +65,13 @@ pub enum World {
   Yojimbo,
   Zeromus,
 
+  // Light
+  Lich,
+  Odin,
+  Phoenix,
+  Shiva,
+  Zodiark,
+
   // Mana
   Anima,
   Asura,
@@ -80,15 +87,12 @@ pub enum World {
 
   // Primal
   Behemoth,
-  Brynhildr,
-  Diabolos,
   Excalibur,
   Exodus,
   Famfrit,
   Hyperion,
   Lamia,
   Leviathan,
-  Malboro,
   Ultros,
 }
 
@@ -97,30 +101,30 @@ impl World {
   pub const ALL: [World; 66] = [
     // Aether
     World::Adamantoise,
-    World::Balmung,
     World::Cactuar,
-    World::Coeurl,
     World::Faerie,
     World::Gilgamesh,
-    World::Goblin,
     World::Jenova,
-    World::Mateus,
     World::Midgardsormr,
     World::Sargatanas,
     World::Siren,
-    World::Zalera,
 
     // Chaos
     World::Cerberus,
-    World::Lich,
     World::Louisoix,
     World::Moogle,
-    World::Odin,
     World::Omega,
-    World::Phoenix,
     World::Ragnarok,
-    World::Shiva,
-    World::Zodiark,
+
+    // Crystal
+    World::Balmung,
+    World::Brynhildr,
+    World::Coeurl,
+    World::Diabolos,
+    World::Goblin,
+    World::Malboro,
+    World::Mateus,
+    World::Zalera,
 
     // Elemental
     World::Aegis,
@@ -147,6 +151,13 @@ impl World {
     World::Yojimbo,
     World::Zeromus,
 
+    // Light
+    World::Lich,
+    World::Odin,
+    World::Phoenix,
+    World::Shiva,
+    World::Zodiark,
+
     // Mana
     World::Anima,
     World::Asura,
@@ -162,15 +173,12 @@ impl World {
 
     // Primal
     World::Behemoth,
-    World::Brynhildr,
-    World::Diabolos,
     World::Excalibur,
     World::Exodus,
     World::Famfrit,
     World::Hyperion,
     World::Lamia,
     World::Leviathan,
-    World::Malboro,
     World::Ultros,
   ];
 
@@ -178,29 +186,28 @@ impl World {
   pub fn as_str(&self) -> &'static str {
     match *self {
       World::Adamantoise => "Adamantoise",
-      World::Balmung => "Balmung",
       World::Cactuar => "Cactuar",
-      World::Coeurl => "Coeurl",
       World::Faerie => "Faerie",
       World::Gilgamesh => "Gilgamesh",
-      World::Goblin => "Goblin",
       World::Jenova => "Jenova",
-      World::Mateus => "Mateus",
       World::Midgardsormr => "Midgardsormr",
       World::Sargatanas => "Sargatanas",
       World::Siren => "Siren",
-      World::Zalera => "Zalera",
 
       World::Cerberus => "Cerberus",
-      World::Lich => "Lich",
       World::Louisoix => "Louisoix",
       World::Moogle => "Moogle",
-      World::Odin => "Odin",
       World::Omega => "Omega",
-      World::Phoenix => "Phoenix",
       World::Ragnarok => "Ragnarok",
-      World::Shiva => "Shiva",
-      World::Zodiark => "Zodiark",
+
+      World::Balmung => "Balmung",
+      World::Brynhildr => "Brynhildr",
+      World::Coeurl => "Coeurl",
+      World::Diabolos => "Diabolos",
+      World::Goblin => "Goblin",
+      World::Malboro => "Malboro",
+      World::Mateus => "Mateus",
+      World::Zalera => "Zalera",
 
       World::Aegis => "Aegis",
       World::Atomos => "Atomos",
@@ -225,6 +232,12 @@ impl World {
       World::Yojimbo => "Yojimbo",
       World::Zeromus => "Zeromus",
 
+      World::Lich => "Lich",
+      World::Odin => "Odin",
+      World::Phoenix => "Phoenix",
+      World::Shiva => "Shiva",
+      World::Zodiark => "Zodiark",
+
       World::Anima => "Anima",
       World::Asura => "Asura",
       World::Belias => "Belias",
@@ -238,15 +251,12 @@ impl World {
       World::Titan => "Titan",
 
       World::Behemoth => "Behemoth",
-      World::Brynhildr => "Brynhildr",
-      World::Diabolos => "Diabolos",
       World::Excalibur => "Excalibur",
       World::Exodus => "Exodus",
       World::Famfrit => "Famfrit",
       World::Hyperion => "Hyperion",
       World::Lamia => "Lamia",
       World::Leviathan => "Leviathan",
-      World::Malboro => "Malboro",
       World::Ultros => "Ultros",
     }
   }
@@ -261,29 +271,28 @@ impl World {
   pub fn data_center(&self) -> DataCenter {
     match *self {
       World::Adamantoise |
-      World::Balmung |
       World::Cactuar |
-      World::Coeurl |
       World::Faerie |
       World::Gilgamesh |
-      World::Goblin |
       World::Jenova |
-      World::Mateus |
       World::Midgardsormr |
       World::Sargatanas |
-      World::Siren |
-      World::Zalera => DataCenter::Aether,
+      World::Siren => DataCenter::Aether,
 
       World::Cerberus |
-      World::Lich |
       World::Louisoix |
       World::Moogle |
-      World::Odin |
       World::Omega |
-      World::Phoenix |
-      World::Ragnarok |
-      World::Shiva |
-      World::Zodiark => DataCenter::Chaos,
+      World::Ragnarok => DataCenter::Chaos,
+
+      World::Balmung |
+      World::Brynhildr |
+      World::Coeurl |
+      World::Diabolos |
+      World::Goblin |
+      World::Malboro |
+      World::Mateus |
+      World::Zalera => DataCenter::Crystal,
 
       World::Aegis |
       World::Atomos |
@@ -308,6 +317,12 @@ impl World {
       World::Yojimbo |
       World::Zeromus => DataCenter::Gaia,
 
+      World::Lich |
+      World::Odin |
+      World::Phoenix |
+      World::Shiva |
+      World::Zodiark => DataCenter::Light,
+
       World::Anima |
       World::Asura |
       World::Belias |
@@ -320,16 +335,14 @@ impl World {
       World::Shinryu |
       World::Titan => DataCenter::Mana,
 
+      // Primal
       World::Behemoth |
-      World::Brynhildr |
-      World::Diabolos |
       World::Excalibur |
       World::Exodus |
       World::Famfrit |
       World::Hyperion |
       World::Lamia |
       World::Leviathan |
-      World::Malboro |
       World::Ultros => DataCenter::Primal,
     }
   }
@@ -344,29 +357,28 @@ impl FromStr for World {
   fn from_str(s: &str) -> Result<Self, Self::Err> {
     let world = match s.to_lowercase().as_str() {
       "adamantoise" => World::Adamantoise,
-      "balmung" => World::Balmung,
       "cactuar" => World::Cactuar,
-      "coeurl" => World::Coeurl,
       "faerie" => World::Faerie,
       "gilgamesh" => World::Gilgamesh,
-      "goblin" => World::Goblin,
       "jenova" => World::Jenova,
-      "mateus" => World::Mateus,
       "midgardsormr" => World::Midgardsormr,
       "sargatanas" => World::Sargatanas,
       "siren" => World::Siren,
-      "zalera" => World::Zalera,
 
       "cerberus" => World::Cerberus,
-      "lich" => World::Lich,
       "louisoix" => World::Louisoix,
       "moogle" => World::Moogle,
-      "odin" => World::Odin,
       "omega" => World::Omega,
-      "phoenix" => World::Phoenix,
       "ragnarok" => World::Ragnarok,
-      "shiva" => World::Shiva,
-      "zodiark" => World::Zodiark,
+
+      "balmung" => World::Balmung,
+      "brynhildr" => World::Brynhildr,
+      "coeurl" => World::Coeurl,
+      "diabolos" => World::Diabolos,
+      "goblin" => World::Goblin,
+      "malboro" => World::Malboro,
+      "mateus" => World::Mateus,
+      "zalera" => World::Zalera,
 
       "aegis" => World::Aegis,
       "atomos" => World::Atomos,
@@ -391,6 +403,12 @@ impl FromStr for World {
       "yojimbo" => World::Yojimbo,
       "zeromus" => World::Zeromus,
 
+      "lich" => World::Lich,
+      "odin" => World::Odin,
+      "phoenix" => World::Phoenix,
+      "shiva" => World::Shiva,
+      "zodiark" => World::Zodiark,
+
       "anima" => World::Anima,
       "asura" => World::Asura,
       "belias" => World::Belias,
@@ -404,15 +422,12 @@ impl FromStr for World {
       "titan" => World::Titan,
 
       "behemoth" => World::Behemoth,
-      "brynhildr" => World::Brynhildr,
-      "diabolos" => World::Diabolos,
       "excalibur" => World::Excalibur,
       "exodus" => World::Exodus,
       "famfrit" => World::Famfrit,
       "hyperion" => World::Hyperion,
       "lamia" => World::Lamia,
       "leviathan" => World::Leviathan,
-      "malboro" => World::Malboro,
       "ultros" => World::Ultros,
 
       _ => return Err(UnknownVariant("World", s.into()))

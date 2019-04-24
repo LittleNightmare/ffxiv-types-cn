@@ -10,19 +10,23 @@ use std::str::FromStr;
 pub enum DataCenter {
   Aether,
   Chaos,
+  Crystal,
   Elemental,
   Gaia,
+  Light,
   Mana,
   Primal,
 }
 
 impl DataCenter {
   #[cfg(feature = "all_const")]
-  pub const ALL: [DataCenter; 6] = [
+  pub const ALL: [DataCenter; 8] = [
     DataCenter::Aether,
     DataCenter::Chaos,
+    DataCenter::Crystal,
     DataCenter::Elemental,
     DataCenter::Gaia,
+    DataCenter::Light,
     DataCenter::Mana,
     DataCenter::Primal,
   ];
@@ -31,8 +35,10 @@ impl DataCenter {
     match *self {
       DataCenter::Aether => "Aether",
       DataCenter::Chaos => "Chaos",
+      DataCenter::Crystal => "Crystal",
       DataCenter::Elemental => "Elemental",
       DataCenter::Gaia => "Gaia",
+      DataCenter::Light => "Light",
       DataCenter::Mana => "Mana",
       DataCenter::Primal => "Primal",
     }
@@ -51,8 +57,10 @@ impl FromStr for DataCenter {
     let data_center = match s.to_lowercase().as_str() {
       "aether" => DataCenter::Aether,
       "chaos" => DataCenter::Chaos,
+      "crystal" => DataCenter::Crystal,
       "elemental" => DataCenter::Elemental,
       "gaia" => DataCenter::Gaia,
+      "light" => DataCenter::Light,
       "mana" => DataCenter::Mana,
       "primal" => DataCenter::Primal,
       _ => return Err(UnknownVariant("DataCenter", s.into()))
