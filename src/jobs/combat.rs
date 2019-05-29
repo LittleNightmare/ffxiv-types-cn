@@ -16,6 +16,7 @@ pub enum Job {
   // DPS
   Bard,
   BlackMage,
+  Dancer,
   Dragoon,
   Machinist,
   Monk,
@@ -31,6 +32,7 @@ pub enum Job {
 
   // Tank
   DarkKnight,
+  Gunbreaker,
   Paladin,
   Warrior,
 
@@ -40,10 +42,11 @@ pub enum Job {
 
 impl Job {
   #[cfg(feature = "all_const")]
-  pub const ALL: [Job; 16] = [
+  pub const ALL: [Job; 18] = [
     // DPS
     Job::Bard,
     Job::BlackMage,
+    Job::Dancer,
     Job::Dragoon,
     Job::Machinist,
     Job::Monk,
@@ -59,6 +62,7 @@ impl Job {
 
     // Tank
     Job::DarkKnight,
+    Job::Gunbreaker,
     Job::Paladin,
     Job::Warrior,
 
@@ -71,6 +75,7 @@ impl Job {
     match *self {
       Job::Bard => "Bard",
       Job::BlackMage => "BlackMage",
+      Job::Dancer => "Dancer",
       Job::Dragoon => "Dragoon",
       Job::Machinist => "Machinist",
       Job::Monk => "Monk",
@@ -84,6 +89,7 @@ impl Job {
       Job::WhiteMage => "WhiteMage",
 
       Job::DarkKnight => "DarkKnight",
+      Job::Gunbreaker => "Gunbreaker",
       Job::Paladin => "Paladin",
       Job::Warrior => "Warrior",
 
@@ -98,6 +104,7 @@ impl Job {
     match *self {
       Job::Bard => "Bard",
       Job::BlackMage => "Black Mage",
+      Job::Dancer => "Dancer",
       Job::Dragoon => "Dragoon",
       Job::Machinist => "Machinist",
       Job::Monk => "Monk",
@@ -111,6 +118,7 @@ impl Job {
       Job::WhiteMage => "White Mage",
 
       Job::DarkKnight => "Dark Knight",
+      Job::Gunbreaker => "Gunbreaker",
       Job::Paladin => "Paladin",
       Job::Warrior => "Warrior",
 
@@ -125,6 +133,7 @@ impl Job {
     match *self {
       Job::Bard => "BRD",
       Job::BlackMage => "BLM",
+      Job::Dancer => "DNC",
       Job::Dragoon => "DRG",
       Job::Machinist => "MCH",
       Job::Monk => "MNK",
@@ -138,6 +147,7 @@ impl Job {
       Job::WhiteMage => "WHM",
 
       Job::DarkKnight => "DRK",
+      Job::Gunbreaker => "GNB",
       Job::Paladin => "PLD",
       Job::Warrior => "WAR",
 
@@ -151,6 +161,7 @@ impl Job {
     match *self {
       Job::Bard |
       Job::BlackMage |
+      Job::Dancer |
       Job::Dragoon |
       Job::Machinist |
       Job::Monk |
@@ -165,6 +176,7 @@ impl Job {
       Job::WhiteMage => Role::Healer,
 
       Job::DarkKnight |
+      Job::Gunbreaker |
       Job::Paladin |
       Job::Warrior => Role::Tank,
     }
@@ -175,8 +187,10 @@ impl Job {
   pub fn classification(&self) -> Classification {
     match *self {
       Job::Bard |
+      Job::Dancer |
       Job::DarkKnight |
       Job::Dragoon |
+      Job::Gunbreaker |
       Job::Machinist |
       Job::Monk |
       Job::Ninja |
@@ -208,6 +222,7 @@ impl FromStr for Job {
     let job = match s.to_lowercase().as_str() {
       "bard" | "brd" => Job::Bard,
       "black mage" | "blackmage" | "blm" => Job::BlackMage,
+      "dancer" | "dnc" => Job::Dancer,
       "dragoon" | "drg" => Job::Dragoon,
       "machinist" | "mch" => Job::Machinist,
       "monk" | "mnk" => Job::Monk,
@@ -221,6 +236,7 @@ impl FromStr for Job {
       "white mage" | "whitemage" | "whm" => Job::WhiteMage,
 
       "dark knight" | "darkknight" | "drk" => Job::DarkKnight,
+      "gunbreaker" | "gnb" => Job::Gunbreaker,
       "paladin" | "pld" => Job::Paladin,
       "warrior" | "war" => Job::Warrior,
 
