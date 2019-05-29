@@ -14,21 +14,25 @@ use std::str::FromStr;
 pub enum Race {
   AuRa,
   Elezen,
+  Hrothgar,
   Hyur,
   Lalafell,
   Miqote,
   Roegadyn,
+  Viera,
 }
 
 impl Race {
   #[cfg(feature = "all_const")]
-  pub const ALL: [Race; 6] = [
+  pub const ALL: [Race; 8] = [
     Race::AuRa,
     Race::Elezen,
+    Race::Hrothgar,
     Race::Hyur,
     Race::Lalafell,
     Race::Miqote,
     Race::Roegadyn,
+    Race::Viera,
   ];
 
   /// Returns the string variant of this world.
@@ -36,10 +40,12 @@ impl Race {
     match *self {
       Race::AuRa => "AuRa",
       Race::Elezen => "Elezen",
+      Race::Hrothgar => "Hrothgar",
       Race::Hyur => "Hyur",
       Race::Lalafell => "Lalafell",
       Race::Miqote => "Miqote",
       Race::Roegadyn => "Roegadyn",
+      Race::Viera => "Viera",
     }
   }
 
@@ -47,10 +53,12 @@ impl Race {
     match *self {
       Race::AuRa => "Au Ra",
       Race::Elezen => "Elezen",
+      Race::Hrothgar => "Hrothgar",
       Race::Hyur => "Hyur",
       Race::Lalafell => "Lalafell",
       Race::Miqote => "Miqo'te",
       Race::Roegadyn => "Roegadyn",
+      Race::Viera => "Viera",
     }
   }
 
@@ -59,10 +67,12 @@ impl Race {
     match *self {
       Race::AuRa => [Clan::Raen, Clan::Xaela],
       Race::Elezen => [Clan::Duskwight, Clan::Wildwood],
+      Race::Hrothgar => [Clan::Helion, Clan::TheLost],
       Race::Hyur => [Clan::Highlander, Clan::Midlander],
       Race::Lalafell => [Clan::Dunesfolk, Clan::Plainsfolk],
       Race::Miqote => [Clan::KeeperOfTheMoon, Clan::SeekerOfTheSun],
       Race::Roegadyn => [Clan::Hellsguard, Clan::SeaWolf],
+      Race::Viera => [Clan::Rava, Clan::Veena],
     }
   }
 }
@@ -77,10 +87,12 @@ impl FromStr for Race {
     let world = match s.to_lowercase().as_str() {
       "aura" | "au ra" => Race::AuRa,
       "elezen" => Race::Elezen,
+      "hrothgar" => Race::Hrothgar,
       "hyur" => Race::Hyur,
       "lalafell" => Race::Lalafell,
       "miqote" | "miqo'te" => Race::Miqote,
       "roegadyn" => Race::Roegadyn,
+      "viera" => Race::Viera,
       _ => return Err(UnknownVariant("Race", s.into()))
     };
 
