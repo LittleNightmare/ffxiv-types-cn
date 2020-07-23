@@ -29,6 +29,7 @@ pub enum World {
   Moogle,
   Omega,
   Ragnarok,
+  Spriggan,
 
   // Crystal
   Balmung,
@@ -70,6 +71,7 @@ pub enum World {
   Odin,
   Phoenix,
   Shiva,
+  Twintania,
   Zodiark,
 
   // Mana
@@ -98,7 +100,7 @@ pub enum World {
 
 impl World {
   #[cfg(feature = "all_const")]
-  pub const ALL: [World; 66] = [
+  pub const ALL: [World; 68] = [
     // Aether
     World::Adamantoise,
     World::Cactuar,
@@ -115,6 +117,7 @@ impl World {
     World::Moogle,
     World::Omega,
     World::Ragnarok,
+    World::Spriggan,
 
     // Crystal
     World::Balmung,
@@ -156,6 +159,7 @@ impl World {
     World::Odin,
     World::Phoenix,
     World::Shiva,
+    World::Twintania,
     World::Zodiark,
 
     // Mana
@@ -199,6 +203,7 @@ impl World {
       World::Moogle => "Moogle",
       World::Omega => "Omega",
       World::Ragnarok => "Ragnarok",
+      World::Spriggan => "Spriggan",
 
       World::Balmung => "Balmung",
       World::Brynhildr => "Brynhildr",
@@ -236,6 +241,7 @@ impl World {
       World::Odin => "Odin",
       World::Phoenix => "Phoenix",
       World::Shiva => "Shiva",
+      World::Twintania => "Twintania",
       World::Zodiark => "Zodiark",
 
       World::Anima => "Anima",
@@ -283,7 +289,8 @@ impl World {
       World::Louisoix |
       World::Moogle |
       World::Omega |
-      World::Ragnarok => DataCenter::Chaos,
+      World::Ragnarok |
+      World::Spriggan => DataCenter::Chaos,
 
       World::Balmung |
       World::Brynhildr |
@@ -321,6 +328,7 @@ impl World {
       World::Odin |
       World::Phoenix |
       World::Shiva |
+      World::Twintania |
       World::Zodiark => DataCenter::Light,
 
       World::Anima |
@@ -370,6 +378,7 @@ impl FromStr for World {
       "moogle" => World::Moogle,
       "omega" => World::Omega,
       "ragnarok" => World::Ragnarok,
+      "spriggan" => World::Spriggan,
 
       "balmung" => World::Balmung,
       "brynhildr" => World::Brynhildr,
@@ -407,6 +416,7 @@ impl FromStr for World {
       "odin" => World::Odin,
       "phoenix" => World::Phoenix,
       "shiva" => World::Shiva,
+      "twintania" => World::Twintania,
       "zodiark" => World::Zodiark,
 
       "anima" => World::Anima,
