@@ -13,244 +13,348 @@ use std::str::FromStr;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
 pub enum Job {
-  // DPS
-  Bard,
-  BlackMage,
-  Dancer,
-  Dragoon,
-  Machinist,
-  Monk,
-  Ninja,
-  RedMage,
-  Samurai,
-  Summoner,
+    // DPS
+    Bard,
+    BlackMage,
+    Dancer,
+    Dragoon,
+    Machinist,
+    Monk,
+    Ninja,
+    RedMage,
+    Samurai,
+    Summoner,
 
-  // Healer
-  Astrologian,
-  Scholar,
-  WhiteMage,
+    // Healer
+    Astrologian,
+    Scholar,
+    WhiteMage,
 
-  // Tank
-  DarkKnight,
-  Gunbreaker,
-  Paladin,
-  Warrior,
+    // Tank
+    DarkKnight,
+    Gunbreaker,
+    Paladin,
+    Warrior,
 
-  // Limited
-  BlueMage,
+    // Limited
+    BlueMage,
 }
 
 impl Job {
-  #[cfg(feature = "all_const")]
-  pub const ALL: [Job; 18] = [
-    // DPS
-    Job::Bard,
-    Job::BlackMage,
-    Job::Dancer,
-    Job::Dragoon,
-    Job::Machinist,
-    Job::Monk,
-    Job::Ninja,
-    Job::RedMage,
-    Job::Samurai,
-    Job::Summoner,
+    #[cfg(feature = "all_const")]
+    pub const ALL: [Job; 18] = [
+        // DPS
+        Job::Bard,
+        Job::BlackMage,
+        Job::Dancer,
+        Job::Dragoon,
+        Job::Machinist,
+        Job::Monk,
+        Job::Ninja,
+        Job::RedMage,
+        Job::Samurai,
+        Job::Summoner,
 
-    // Healer
-    Job::Astrologian,
-    Job::Scholar,
-    Job::WhiteMage,
+        // Healer
+        Job::Astrologian,
+        Job::Scholar,
+        Job::WhiteMage,
 
-    // Tank
-    Job::DarkKnight,
-    Job::Gunbreaker,
-    Job::Paladin,
-    Job::Warrior,
+        // Tank
+        Job::DarkKnight,
+        Job::Gunbreaker,
+        Job::Paladin,
+        Job::Warrior,
 
-    // Limited
-    Job::BlueMage,
-  ];
+        // Limited
+        Job::BlueMage,
+    ];
 
-  /// Returns the string representation of this variant.
-  pub fn as_str(&self) -> &'static str {
-    match *self {
-      Job::Bard => "Bard",
-      Job::BlackMage => "BlackMage",
-      Job::Dancer => "Dancer",
-      Job::Dragoon => "Dragoon",
-      Job::Machinist => "Machinist",
-      Job::Monk => "Monk",
-      Job::Ninja => "Ninja",
-      Job::RedMage => "RedMage",
-      Job::Samurai => "Samurai",
-      Job::Summoner => "Summoner",
+    /// Returns the string representation of this variant.
+    pub fn as_str(&self) -> &'static str {
+        match *self {
+            Job::Bard => "Bard",
+            Job::BlackMage => "BlackMage",
+            Job::Dancer => "Dancer",
+            Job::Dragoon => "Dragoon",
+            Job::Machinist => "Machinist",
+            Job::Monk => "Monk",
+            Job::Ninja => "Ninja",
+            Job::RedMage => "RedMage",
+            Job::Samurai => "Samurai",
+            Job::Summoner => "Summoner",
 
-      Job::Astrologian => "Astrologian",
-      Job::Scholar => "Scholar",
-      Job::WhiteMage => "WhiteMage",
+            Job::Astrologian => "Astrologian",
+            Job::Scholar => "Scholar",
+            Job::WhiteMage => "WhiteMage",
 
-      Job::DarkKnight => "DarkKnight",
-      Job::Gunbreaker => "Gunbreaker",
-      Job::Paladin => "Paladin",
-      Job::Warrior => "Warrior",
+            Job::DarkKnight => "DarkKnight",
+            Job::Gunbreaker => "Gunbreaker",
+            Job::Paladin => "Paladin",
+            Job::Warrior => "Warrior",
 
-      Job::BlueMage => "Blue Mage",
+            Job::BlueMage => "BlueMage",
+        }
     }
-  }
 
-  /// Returns the name of this job.
-  ///
-  /// Names are title-cased and have spaces between words (e.g. "Bard" and "Black Mage").
-  pub fn name(&self) -> &'static str {
-    match *self {
-      Job::Bard => "Bard",
-      Job::BlackMage => "Black Mage",
-      Job::Dancer => "Dancer",
-      Job::Dragoon => "Dragoon",
-      Job::Machinist => "Machinist",
-      Job::Monk => "Monk",
-      Job::Ninja => "Ninja",
-      Job::RedMage => "Red Mage",
-      Job::Samurai => "Samurai",
-      Job::Summoner => "Summoner",
+    /// Returns the name of this job.
+    ///
+    /// Names are title-cased and have spaces between words (e.g. "Bard" and "Black Mage").
+    pub fn name(&self) -> &'static str {
+        match *self {
+            Job::Bard => "Bard",
+            Job::BlackMage => "Black Mage",
+            Job::Dancer => "Dancer",
+            Job::Dragoon => "Dragoon",
+            Job::Machinist => "Machinist",
+            Job::Monk => "Monk",
+            Job::Ninja => "Ninja",
+            Job::RedMage => "Red Mage",
+            Job::Samurai => "Samurai",
+            Job::Summoner => "Summoner",
 
-      Job::Astrologian => "Astrologian",
-      Job::Scholar => "Scholar",
-      Job::WhiteMage => "White Mage",
+            Job::Astrologian => "Astrologian",
+            Job::Scholar => "Scholar",
+            Job::WhiteMage => "White Mage",
 
-      Job::DarkKnight => "Dark Knight",
-      Job::Gunbreaker => "Gunbreaker",
-      Job::Paladin => "Paladin",
-      Job::Warrior => "Warrior",
+            Job::DarkKnight => "Dark Knight",
+            Job::Gunbreaker => "Gunbreaker",
+            Job::Paladin => "Paladin",
+            Job::Warrior => "Warrior",
 
-      Job::BlueMage => "Blue Mage",
+            Job::BlueMage => "Blue Mage",
+        }
     }
-  }
 
-  /// Returns the short code of this job.
-  ///
-  /// Short codes are fully capitalized (e.g. "BRD", "BLM").
-  pub fn code(&self) -> &'static str {
-    match *self {
-      Job::Bard => "BRD",
-      Job::BlackMage => "BLM",
-      Job::Dancer => "DNC",
-      Job::Dragoon => "DRG",
-      Job::Machinist => "MCH",
-      Job::Monk => "MNK",
-      Job::Ninja => "NIN",
-      Job::RedMage => "RDM",
-      Job::Samurai => "SAM",
-      Job::Summoner => "SMN",
+    /// Returns the short code of this job.
+    ///
+    /// Short codes are fully capitalized (e.g. "BRD", "BLM").
+    pub fn code(&self) -> &'static str {
+        match *self {
+            Job::Bard => "BRD",
+            Job::BlackMage => "BLM",
+            Job::Dancer => "DNC",
+            Job::Dragoon => "DRG",
+            Job::Machinist => "MCH",
+            Job::Monk => "MNK",
+            Job::Ninja => "NIN",
+            Job::RedMage => "RDM",
+            Job::Samurai => "SAM",
+            Job::Summoner => "SMN",
 
-      Job::Astrologian => "AST",
-      Job::Scholar => "SCH",
-      Job::WhiteMage => "WHM",
+            Job::Astrologian => "AST",
+            Job::Scholar => "SCH",
+            Job::WhiteMage => "WHM",
 
-      Job::DarkKnight => "DRK",
-      Job::Gunbreaker => "GNB",
-      Job::Paladin => "PLD",
-      Job::Warrior => "WAR",
+            Job::DarkKnight => "DRK",
+            Job::Gunbreaker => "GNB",
+            Job::Paladin => "PLD",
+            Job::Warrior => "WAR",
 
-      Job::BlueMage => "BLU",
+            Job::BlueMage => "BLU",
+        }
     }
-  }
 
-  /// Returns the [`Role`] for this job.
-  #[cfg(feature = "roles")]
-  pub fn role(&self) -> Role {
-    match *self {
-      Job::Bard |
-      Job::BlackMage |
-      Job::Dancer |
-      Job::Dragoon |
-      Job::Machinist |
-      Job::Monk |
-      Job::Ninja |
-      Job::RedMage |
-      Job::Samurai |
-      Job::Summoner |
-      Job::BlueMage => Role::Dps,
+    /// Returns the [`Role`] for this job.
+    #[cfg(feature = "roles")]
+    pub fn role(&self) -> Role {
+        match *self {
+            Job::Bard |
+            Job::BlackMage |
+            Job::Dancer |
+            Job::Dragoon |
+            Job::Machinist |
+            Job::Monk |
+            Job::Ninja |
+            Job::RedMage |
+            Job::Samurai |
+            Job::Summoner |
+            Job::BlueMage => Role::Dps,
 
-      Job::Astrologian |
-      Job::Scholar |
-      Job::WhiteMage => Role::Healer,
+            Job::Astrologian |
+            Job::Scholar |
+            Job::WhiteMage => Role::Healer,
 
-      Job::DarkKnight |
-      Job::Gunbreaker |
-      Job::Paladin |
-      Job::Warrior => Role::Tank,
+            Job::DarkKnight |
+            Job::Gunbreaker |
+            Job::Paladin |
+            Job::Warrior => Role::Tank,
+        }
     }
-  }
 
-  /// Returns the [`Classification`] for this job.
-  #[cfg(feature = "job_classifications")]
-  pub fn classification(&self) -> Classification {
-    match *self {
-      Job::Bard |
-      Job::Dancer |
-      Job::DarkKnight |
-      Job::Dragoon |
-      Job::Gunbreaker |
-      Job::Machinist |
-      Job::Monk |
-      Job::Ninja |
-      Job::Paladin |
-      Job::Samurai |
-      Job::Warrior |
-      Job::BlueMage => Classification::War,
+    /// Returns the [`Classification`] for this job.
+    #[cfg(feature = "job_classifications")]
+    pub fn classification(&self) -> Classification {
+        match *self {
+            Job::Bard |
+            Job::Dancer |
+            Job::DarkKnight |
+            Job::Dragoon |
+            Job::Gunbreaker |
+            Job::Machinist |
+            Job::Monk |
+            Job::Ninja |
+            Job::Paladin |
+            Job::Samurai |
+            Job::Warrior |
+            Job::BlueMage => Classification::War,
 
-      Job::Astrologian |
-      Job::BlackMage |
-      Job::RedMage |
-      Job::Scholar |
-      Job::Summoner |
-      Job::WhiteMage => Classification::Magic,
+            Job::Astrologian |
+            Job::BlackMage |
+            Job::RedMage |
+            Job::Scholar |
+            Job::Summoner |
+            Job::WhiteMage => Classification::Magic,
+        }
     }
-  }
 }
 
 impl FromStr for Job {
-  type Err = UnknownVariant;
+    type Err = UnknownVariant;
 
-  /// Parses a string `s` to return a value of this type.
-  ///
-  /// This accepts the name of the variant as a string, the name of the variant as a string with
-  /// spaces between words, and the shortened job code for each variant (e.g. "BLM" for Black Mage).
-  ///
-  /// This is case-insensitive.
-  fn from_str(s: &str) -> Result<Self, Self::Err> {
-    let job = match s.to_lowercase().as_str() {
-      "bard" | "brd" => Job::Bard,
-      "black mage" | "blackmage" | "blm" => Job::BlackMage,
-      "dancer" | "dnc" => Job::Dancer,
-      "dragoon" | "drg" => Job::Dragoon,
-      "machinist" | "mch" => Job::Machinist,
-      "monk" | "mnk" => Job::Monk,
-      "ninja" | "nin" => Job::Ninja,
-      "red mage" | "redmage" | "rdm" => Job::RedMage,
-      "samurai" | "sam" => Job::Samurai,
-      "summoner" | "smn" => Job::Summoner,
+    /// Parses a string `s` to return a value of this type.
+    ///
+    /// This accepts the name of the variant as a string, the name of the variant as a string with
+    /// spaces between words, and the shortened job code for each variant (e.g. "BLM" for Black Mage).
+    ///
+    /// This is case-insensitive.
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let job = match s.to_lowercase().as_str() {
+            "bard" | "brd" => Job::Bard,
+            "black mage" | "blackmage" | "blm" => Job::BlackMage,
+            "dancer" | "dnc" => Job::Dancer,
+            "dragoon" | "drg" => Job::Dragoon,
+            "machinist" | "mch" => Job::Machinist,
+            "monk" | "mnk" => Job::Monk,
+            "ninja" | "nin" => Job::Ninja,
+            "red mage" | "redmage" | "rdm" => Job::RedMage,
+            "samurai" | "sam" => Job::Samurai,
+            "summoner" | "smn" => Job::Summoner,
 
-      "astrologian" | "ast" => Job::Astrologian,
-      "scholar" | "sch" => Job::Scholar,
-      "white mage" | "whitemage" | "whm" => Job::WhiteMage,
+            "astrologian" | "ast" => Job::Astrologian,
+            "scholar" | "sch" => Job::Scholar,
+            "white mage" | "whitemage" | "whm" => Job::WhiteMage,
 
-      "dark knight" | "darkknight" | "drk" => Job::DarkKnight,
-      "gunbreaker" | "gnb" => Job::Gunbreaker,
-      "paladin" | "pld" => Job::Paladin,
-      "warrior" | "war" => Job::Warrior,
+            "dark knight" | "darkknight" | "drk" => Job::DarkKnight,
+            "gunbreaker" | "gnb" => Job::Gunbreaker,
+            "paladin" | "pld" => Job::Paladin,
+            "warrior" | "war" => Job::Warrior,
 
-      "blue mage" | "bluemage" | "blu" => Job::BlueMage,
+            "blue mage" | "bluemage" | "blu" => Job::BlueMage,
 
-      _ => return Err(UnknownVariant("Job", s.into()))
-    };
+            _ => return Err(UnknownVariant("Job", s.into()))
+        };
 
-    Ok(job)
-  }
+        Ok(job)
+    }
 }
 
 impl Display for Job {
-  fn fmt(&self, f: &mut Formatter) -> FmtResult {
-    write!(f, "{}", self.name())
-  }
+    fn fmt(&self, f: &mut Formatter) -> FmtResult {
+        write!(f, "{}", self.name())
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
+pub enum Class {
+    Arcanist,
+    Archer,
+    Lancer,
+    Pugilist,
+    Rogue,
+    Thaumaturge,
+
+    Conjurer,
+
+    Gladiator,
+    Marauder,
+}
+
+impl Class {
+    #[cfg(feature = "all_const")]
+    pub const ALL: [Class; 9] = [
+        Self::Arcanist,
+        Self::Archer,
+        Self::Lancer,
+        Self::Pugilist,
+        Self::Rogue,
+        Self::Thaumaturge,
+        Self::Conjurer,
+        Self::Gladiator,
+        Self::Marauder,
+    ];
+
+    pub fn as_str(&self) -> &'static str {
+        match self {
+            Self::Arcanist => "Arcanist",
+            Self::Archer => "Archer",
+            Self::Lancer => "Lancer",
+            Self::Pugilist => "Pugilist",
+            Self::Rogue => "Rogue",
+            Self::Thaumaturge => "Thaumaturge",
+
+            Self::Conjurer => "Conjurer",
+
+            Self::Gladiator => "Gladiator",
+            Self::Marauder => "Marauder",
+        }
+    }
+
+    pub fn name(&self) -> &'static str {
+        // all one word
+        self.as_str()
+    }
+
+    // code
+    pub fn code(&self) -> &'static str {
+        match self {
+            Self::Arcanist => "ACN",
+            Self::Archer => "ARC",
+            Self::Lancer => "LNC",
+            Self::Pugilist => "PGL",
+            Self::Rogue => "ROG",
+            Self::Thaumaturge => "THM",
+
+            Self::Conjurer => "CNJ",
+
+            Self::Gladiator => "GLA",
+            Self::Marauder => "MRD",
+        }
+    }
+
+    // role
+    #[cfg(feature = "roles")]
+    pub fn role(&self) -> Role {
+        match self {
+            Self::Arcanist
+            | Self::Archer
+            | Self::Lancer
+            | Self::Pugilist
+            | Self::Rogue
+            | Self::Thaumaturge => Role::Dps,
+
+            Self::Conjurer => Role::Healer,
+
+            Self::Gladiator
+            | Self::Marauder => Role::Tank,
+        }
+    }
+
+    // classification
+    #[cfg(feature = "job_classifications")]
+    pub fn classification(&self) -> Classification {
+        match self {
+            Self::Archer
+            | Self::Lancer
+            | Self::Pugilist
+            | Self::Rogue
+            | Self::Gladiator
+            | Self::Marauder => Classification::War,
+
+            Self::Arcanist
+            | Self::Thaumaturge
+            | Self::Conjurer => Classification::Magic,
+        }
+    }
 }
