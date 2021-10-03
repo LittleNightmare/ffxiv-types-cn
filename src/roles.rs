@@ -13,49 +13,49 @@ use std::str::FromStr;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "with_serde", derive(Serialize, Deserialize))]
 pub enum Role {
-  Dps,
-  Healer,
-  Tank,
+    Dps,
+    Healer,
+    Tank,
 }
 
 impl Role {
-  #[cfg(feature = "all_const")]
-  pub const ALL: [Role; 3] = [Role::Dps, Role::Healer, Role::Tank];
+    #[cfg(feature = "all_const")]
+    pub const ALL: [Role; 3] = [Role::Dps, Role::Healer, Role::Tank];
 
-  pub fn as_str(&self) -> &'static str {
-    match *self {
-      Role::Dps => "Dps",
-      Role::Healer => "Healer",
-      Role::Tank => "Tank",
+    pub fn as_str(&self) -> &'static str {
+        match *self {
+            Role::Dps => "Dps",
+            Role::Healer => "Healer",
+            Role::Tank => "Tank",
+        }
     }
-  }
 
-  pub fn name(&self) -> &'static str {
-    match *self {
-      Role::Dps => "DPS",
-      Role::Healer => "Healer",
-      Role::Tank => "Tank",
+    pub fn name(&self) -> &'static str {
+        match *self {
+            Role::Dps => "DPS",
+            Role::Healer => "Healer",
+            Role::Tank => "Tank",
+        }
     }
-  }
 }
 
 impl FromStr for Role {
-  type Err = UnknownVariant;
+    type Err = UnknownVariant;
 
-  fn from_str(s: &str) -> Result<Self, Self::Err> {
-    let role = match s.to_lowercase().as_str() {
-      "dps" => Role::Dps,
-      "healer" => Role::Healer,
-      "tank" => Role::Tank,
-      _ => return Err(UnknownVariant("Role", s.into()))
-    };
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let role = match s.to_lowercase().as_str() {
+            "dps" => Role::Dps,
+            "healer" => Role::Healer,
+            "tank" => Role::Tank,
+            _ => return Err(UnknownVariant("Role", s.into()))
+        };
 
-    Ok(role)
-  }
+        Ok(role)
+    }
 }
 
 impl Display for Role {
-  fn fmt(&self, f: &mut Formatter) -> FmtResult {
-    write!(f, "{}", self.name())
-  }
+    fn fmt(&self, f: &mut Formatter) -> FmtResult {
+        write!(f, "{}", self.name())
+    }
 }
