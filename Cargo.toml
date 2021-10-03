@@ -1,10 +1,10 @@
 [package]
 name = "ffxiv_types"
 version = "1.4.0"
-authors = ["Kyle Clemens <git@kyleclemens.com>"]
+authors = ["Anna Clemens <ffxiv-types@annaclemens.io>"]
 description = "Useful types for FFXIV-related projects"
 documentation = "https://docs.rs/ffxiv_types"
-repository = "https://github.com/jkcclemens/ffxiv_types"
+repository = "https://github.com/ascclemens/ffxiv_types"
 license = "MIT"
 
 [features]
