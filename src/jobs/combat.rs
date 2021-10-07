@@ -21,12 +21,14 @@ pub enum Job {
     Machinist,
     Monk,
     Ninja,
+    Reaper,
     RedMage,
     Samurai,
     Summoner,
 
     // Healer
     Astrologian,
+    Sage,
     Scholar,
     WhiteMage,
 
@@ -42,7 +44,7 @@ pub enum Job {
 
 impl Job {
     #[cfg(feature = "all_const")]
-    pub const ALL: [Job; 18] = [
+    pub const ALL: [Job; 20] = [
         // DPS
         Job::Bard,
         Job::BlackMage,
@@ -51,12 +53,14 @@ impl Job {
         Job::Machinist,
         Job::Monk,
         Job::Ninja,
+        Job::Reaper,
         Job::RedMage,
         Job::Samurai,
         Job::Summoner,
 
         // Healer
         Job::Astrologian,
+        Job::Sage,
         Job::Scholar,
         Job::WhiteMage,
 
@@ -80,11 +84,13 @@ impl Job {
             Job::Machinist => "Machinist",
             Job::Monk => "Monk",
             Job::Ninja => "Ninja",
+            Job::Reaper => "Reaper",
             Job::RedMage => "RedMage",
             Job::Samurai => "Samurai",
             Job::Summoner => "Summoner",
 
             Job::Astrologian => "Astrologian",
+            Job::Sage => "Sage",
             Job::Scholar => "Scholar",
             Job::WhiteMage => "WhiteMage",
 
@@ -109,11 +115,13 @@ impl Job {
             Job::Machinist => "Machinist",
             Job::Monk => "Monk",
             Job::Ninja => "Ninja",
+            Job::Reaper => "Reaper",
             Job::RedMage => "Red Mage",
             Job::Samurai => "Samurai",
             Job::Summoner => "Summoner",
 
             Job::Astrologian => "Astrologian",
+            Job::Sage => "Sage",
             Job::Scholar => "Scholar",
             Job::WhiteMage => "White Mage",
 
@@ -138,11 +146,13 @@ impl Job {
             Job::Machinist => "MCH",
             Job::Monk => "MNK",
             Job::Ninja => "NIN",
+            Job::Reaper => "RPR",
             Job::RedMage => "RDM",
             Job::Samurai => "SAM",
             Job::Summoner => "SMN",
 
             Job::Astrologian => "AST",
+            Job::Sage => "SGE",
             Job::Scholar => "SCH",
             Job::WhiteMage => "WHM",
 
@@ -166,12 +176,14 @@ impl Job {
             Job::Machinist |
             Job::Monk |
             Job::Ninja |
+            Job::Reaper |
             Job::RedMage |
             Job::Samurai |
             Job::Summoner |
             Job::BlueMage => Role::Dps,
 
             Job::Astrologian |
+            Job::Sage |
             Job::Scholar |
             Job::WhiteMage => Role::Healer,
 
@@ -195,6 +207,7 @@ impl Job {
             Job::Monk |
             Job::Ninja |
             Job::Paladin |
+            Job::Reaper |
             Job::Samurai |
             Job::Warrior |
             Job::BlueMage => Classification::War,
@@ -202,6 +215,7 @@ impl Job {
             Job::Astrologian |
             Job::BlackMage |
             Job::RedMage |
+            Job::Sage |
             Job::Scholar |
             Job::Summoner |
             Job::WhiteMage => Classification::Magic,
@@ -227,11 +241,13 @@ impl FromStr for Job {
             "machinist" | "mch" => Job::Machinist,
             "monk" | "mnk" => Job::Monk,
             "ninja" | "nin" => Job::Ninja,
+            "reaper" | "rpr" => Job::Reaper,
             "red mage" | "redmage" | "rdm" => Job::RedMage,
             "samurai" | "sam" => Job::Samurai,
             "summoner" | "smn" => Job::Summoner,
 
             "astrologian" | "ast" => Job::Astrologian,
+            "sage" | "sge" => Job::Sage,
             "scholar" | "sch" => Job::Scholar,
             "white mage" | "whitemage" | "whm" => Job::WhiteMage,
 
