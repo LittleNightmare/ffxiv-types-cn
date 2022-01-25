@@ -16,11 +16,12 @@ pub enum DataCenter {
     Light,
     Mana,
     Primal,
+    Materia,
 }
 
 impl DataCenter {
     #[cfg(feature = "all_const")]
-    pub const ALL: [DataCenter; 8] = [
+    pub const ALL: [DataCenter; 9] = [
         DataCenter::Aether,
         DataCenter::Chaos,
         DataCenter::Crystal,
@@ -29,6 +30,7 @@ impl DataCenter {
         DataCenter::Light,
         DataCenter::Mana,
         DataCenter::Primal,
+        DataCenter::Materia,
     ];
 
     pub fn as_str(&self) -> &'static str {
@@ -41,6 +43,7 @@ impl DataCenter {
             DataCenter::Light => "Light",
             DataCenter::Mana => "Mana",
             DataCenter::Primal => "Primal",
+            DataCenter::Materia => "Materia",
         }
     }
 
@@ -63,6 +66,7 @@ impl FromStr for DataCenter {
             "light" => DataCenter::Light,
             "mana" => DataCenter::Mana,
             "primal" => DataCenter::Primal,
+            "materia" => DataCenter::Materia,
             _ => return Err(UnknownVariant("DataCenter", s.into()))
         };
 

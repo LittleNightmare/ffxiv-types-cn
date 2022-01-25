@@ -96,11 +96,18 @@ pub enum World {
     Lamia,
     Leviathan,
     Ultros,
+
+    // Materia
+    Bismarck,
+    Ravana,
+    Sephirot,
+    Sophia,
+    Zurvan,
 }
 
 impl World {
     #[cfg(feature = "all_const")]
-    pub const ALL: [World; 68] = [
+    pub const ALL: [World; 73] = [
         // Aether
         World::Adamantoise,
         World::Cactuar,
@@ -184,6 +191,13 @@ impl World {
         World::Lamia,
         World::Leviathan,
         World::Ultros,
+
+        // Materia
+        World::Bismarck,
+        World::Ravana,
+        World::Sephirot,
+        World::Sophia,
+        World::Zurvan,
     ];
 
     /// Returns the string variant of this world.
@@ -264,6 +278,12 @@ impl World {
             World::Lamia => "Lamia",
             World::Leviathan => "Leviathan",
             World::Ultros => "Ultros",
+
+            World::Bismarck => "Bismarck",
+            World::Ravana => "Ravana",
+            World::Sephirot => "Sephirot",
+            World::Sophia => "Sophia",
+            World::Zurvan => "Zurvan",
         }
     }
 
@@ -352,6 +372,13 @@ impl World {
             World::Lamia |
             World::Leviathan |
             World::Ultros => DataCenter::Primal,
+
+            // Materia
+            World::Bismarck |
+            World::Ravana |
+            World::Sephirot |
+            World::Sophia |
+            World::Zurvan => DataCenter::Materia,
         }
     }
 }
