@@ -467,6 +467,12 @@ impl FromStr for World {
             "leviathan" => World::Leviathan,
             "ultros" => World::Ultros,
 
+            "bismarck" => World::Bismarck,
+            "ravana" => World::Ravana,
+            "sephirot" => World::Sephirot,
+            "sophia" => World::Sophia,
+            "zurvan" => World::Zurvan,
+
             _ => return Err(UnknownVariant("World", s.into()))
         };
 
