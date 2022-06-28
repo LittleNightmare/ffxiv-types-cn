@@ -67,7 +67,7 @@ impl Race {
         match *self {
             Race::AuRa => [Clan::Raen, Clan::Xaela],
             Race::Elezen => [Clan::Duskwight, Clan::Wildwood],
-            Race::Hrothgar => [Clan::Helion, Clan::TheLost],
+            Race::Hrothgar => [Clan::Helions, Clan::TheLost],
             Race::Hyur => [Clan::Highlander, Clan::Midlander],
             Race::Lalafell => [Clan::Dunesfolk, Clan::Plainsfolk],
             Race::Miqote => [Clan::KeeperOfTheMoon, Clan::SeekerOfTheSun],
