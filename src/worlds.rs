@@ -1,11 +1,11 @@
 //! World types
 
+use std::fmt::{Display, Formatter, Result as FmtResult};
+use std::str::FromStr;
+
 #[cfg(feature = "data_centers")]
 use data_centers::DataCenter;
 use errors::UnknownVariant;
-
-use std::fmt::{Display, Formatter, Result as FmtResult};
-use std::str::FromStr;
 
 /// The worlds, sometimes called servers, in the game.
 ///
@@ -28,7 +28,9 @@ pub enum World {
     Louisoix,
     Moogle,
     Omega,
+    Phantom,
     Ragnarok,
+    Sagittarius,
     Spriggan,
 
     // Crystal
@@ -48,10 +50,8 @@ pub enum World {
     Garuda,
     Gungnir,
     Kujata,
-    Ramuh,
     Tonberry,
     Typhon,
-    Unicorn,
 
     // Gaia
     Alexander,
@@ -62,14 +62,13 @@ pub enum World {
     Ridill,
     Tiamat,
     Ultima,
-    Valefor,
-    Yojimbo,
-    Zeromus,
 
     // Light
+    Alpha,
     Lich,
     Odin,
     Phoenix,
+    Raiden,
     Shiva,
     Twintania,
     Zodiark,
@@ -77,14 +76,11 @@ pub enum World {
     // Mana
     Anima,
     Asura,
-    Belias,
     Chocobo,
     Hades,
     Ixion,
-    Mandragora,
     Masamune,
     Pandaemonium,
-    Shinryu,
     Titan,
 
     // Primal
@@ -103,11 +99,21 @@ pub enum World {
     Sephirot,
     Sophia,
     Zurvan,
+
+    // Meteor
+    Belias,
+    Mandragora,
+    Ramuh,
+    Shinryu,
+    Unicorn,
+    Valefor,
+    Yojimbo,
+    Zeromus,
 }
 
 impl World {
     #[cfg(feature = "all_const")]
-    pub const ALL: [World; 73] = [
+    pub const ALL: [World; 77] = [
         // Aether
         World::Adamantoise,
         World::Cactuar,
@@ -123,7 +129,9 @@ impl World {
         World::Louisoix,
         World::Moogle,
         World::Omega,
+        World::Phantom,
         World::Ragnarok,
+        World::Sagittarius,
         World::Spriggan,
 
         // Crystal
@@ -143,10 +151,8 @@ impl World {
         World::Garuda,
         World::Gungnir,
         World::Kujata,
-        World::Ramuh,
         World::Tonberry,
         World::Typhon,
-        World::Unicorn,
 
         // Gaia
         World::Alexander,
@@ -157,14 +163,13 @@ impl World {
         World::Ridill,
         World::Tiamat,
         World::Ultima,
-        World::Valefor,
-        World::Yojimbo,
-        World::Zeromus,
 
         // Light
+        World::Alpha,
         World::Lich,
         World::Odin,
         World::Phoenix,
+        World::Raiden,
         World::Shiva,
         World::Twintania,
         World::Zodiark,
@@ -172,14 +177,11 @@ impl World {
         // Mana
         World::Anima,
         World::Asura,
-        World::Belias,
         World::Chocobo,
         World::Hades,
         World::Ixion,
-        World::Mandragora,
         World::Masamune,
         World::Pandaemonium,
-        World::Shinryu,
         World::Titan,
 
         // Primal
@@ -198,11 +200,22 @@ impl World {
         World::Sephirot,
         World::Sophia,
         World::Zurvan,
+
+        // Meteor
+        World::Belias,
+        World::Mandragora,
+        World::Ramuh,
+        World::Shinryu,
+        World::Unicorn,
+        World::Valefor,
+        World::Yojimbo,
+        World::Zeromus,
     ];
 
     /// Returns the string variant of this world.
     pub fn as_str(&self) -> &'static str {
         match *self {
+            // Aether
             World::Adamantoise => "Adamantoise",
             World::Cactuar => "Cactuar",
             World::Faerie => "Faerie",
@@ -212,13 +225,17 @@ impl World {
             World::Sargatanas => "Sargatanas",
             World::Siren => "Siren",
 
+            // Chaos
             World::Cerberus => "Cerberus",
             World::Louisoix => "Louisoix",
             World::Moogle => "Moogle",
             World::Omega => "Omega",
+            World::Phantom => "Phantom",
             World::Ragnarok => "Ragnarok",
+            World::Sagittarius => "Sagittarius",
             World::Spriggan => "Spriggan",
 
+            // Crystal
             World::Balmung => "Balmung",
             World::Brynhildr => "Brynhildr",
             World::Coeurl => "Coeurl",
@@ -228,17 +245,17 @@ impl World {
             World::Mateus => "Mateus",
             World::Zalera => "Zalera",
 
+            // Elemental
             World::Aegis => "Aegis",
             World::Atomos => "Atomos",
             World::Carbuncle => "Carbuncle",
             World::Garuda => "Garuda",
             World::Gungnir => "Gungnir",
             World::Kujata => "Kujata",
-            World::Ramuh => "Ramuh",
             World::Tonberry => "Tonberry",
             World::Typhon => "Typhon",
-            World::Unicorn => "Unicorn",
 
+            // Gaia
             World::Alexander => "Alexander",
             World::Bahamut => "Bahamut",
             World::Durandal => "Durandal",
@@ -247,29 +264,28 @@ impl World {
             World::Ridill => "Ridill",
             World::Tiamat => "Tiamat",
             World::Ultima => "Ultima",
-            World::Valefor => "Valefor",
-            World::Yojimbo => "Yojimbo",
-            World::Zeromus => "Zeromus",
 
+            // Light
+            World::Alpha => "Alpha",
             World::Lich => "Lich",
             World::Odin => "Odin",
             World::Phoenix => "Phoenix",
+            World::Raiden => "Raiden",
             World::Shiva => "Shiva",
             World::Twintania => "Twintania",
             World::Zodiark => "Zodiark",
 
+            // Mana
             World::Anima => "Anima",
             World::Asura => "Asura",
-            World::Belias => "Belias",
             World::Chocobo => "Chocobo",
             World::Hades => "Hades",
             World::Ixion => "Ixion",
-            World::Mandragora => "Mandragora",
             World::Masamune => "Masamune",
             World::Pandaemonium => "Pandaemonium",
-            World::Shinryu => "Shinryu",
             World::Titan => "Titan",
 
+            // Primal
             World::Behemoth => "Behemoth",
             World::Excalibur => "Excalibur",
             World::Exodus => "Exodus",
@@ -279,11 +295,22 @@ impl World {
             World::Leviathan => "Leviathan",
             World::Ultros => "Ultros",
 
+            // Materia
             World::Bismarck => "Bismarck",
             World::Ravana => "Ravana",
             World::Sephirot => "Sephirot",
             World::Sophia => "Sophia",
             World::Zurvan => "Zurvan",
+
+            // Meteor
+            World::Belias => "Belias",
+            World::Mandragora => "Mandragora",
+            World::Ramuh => "Ramuh",
+            World::Shinryu => "Shinryu",
+            World::Unicorn => "Unicorn",
+            World::Valefor => "Valefor",
+            World::Yojimbo => "Yojimbo",
+            World::Zeromus => "Zeromus",
         }
     }
 
@@ -296,6 +323,7 @@ impl World {
     #[cfg(feature = "data_centers")]
     pub fn data_center(&self) -> DataCenter {
         match *self {
+            // Aether
             World::Adamantoise |
             World::Cactuar |
             World::Faerie |
@@ -305,13 +333,17 @@ impl World {
             World::Sargatanas |
             World::Siren => DataCenter::Aether,
 
+            // Chaos
             World::Cerberus |
             World::Louisoix |
             World::Moogle |
             World::Omega |
+            World::Phantom |
             World::Ragnarok |
+            World::Sagittarius |
             World::Spriggan => DataCenter::Chaos,
 
+            // Crystal
             World::Balmung |
             World::Brynhildr |
             World::Coeurl |
@@ -321,17 +353,17 @@ impl World {
             World::Mateus |
             World::Zalera => DataCenter::Crystal,
 
+            // Elemental
             World::Aegis |
             World::Atomos |
             World::Carbuncle |
             World::Garuda |
             World::Gungnir |
             World::Kujata |
-            World::Ramuh |
             World::Tonberry |
-            World::Typhon |
-            World::Unicorn => DataCenter::Elemental,
+            World::Typhon => DataCenter::Elemental,
 
+            // Gaia
             World::Alexander |
             World::Bahamut |
             World::Durandal |
@@ -339,28 +371,26 @@ impl World {
             World::Ifrit |
             World::Ridill |
             World::Tiamat |
-            World::Ultima |
-            World::Valefor |
-            World::Yojimbo |
-            World::Zeromus => DataCenter::Gaia,
+            World::Ultima => DataCenter::Gaia,
 
+            // Light
+            World::Alpha |
             World::Lich |
             World::Odin |
             World::Phoenix |
+            World::Raiden |
             World::Shiva |
             World::Twintania |
             World::Zodiark => DataCenter::Light,
 
+            // Mana
             World::Anima |
             World::Asura |
-            World::Belias |
             World::Chocobo |
             World::Hades |
             World::Ixion |
-            World::Mandragora |
             World::Masamune |
             World::Pandaemonium |
-            World::Shinryu |
             World::Titan => DataCenter::Mana,
 
             // Primal
@@ -379,6 +409,16 @@ impl World {
             World::Sephirot |
             World::Sophia |
             World::Zurvan => DataCenter::Materia,
+
+            // Meteor
+            World::Belias |
+            World::Mandragora |
+            World::Ramuh |
+            World::Shinryu |
+            World::Unicorn |
+            World::Valefor |
+            World::Yojimbo |
+            World::Zeromus => DataCenter::Meteor,
         }
     }
 }
@@ -391,6 +431,7 @@ impl FromStr for World {
     /// This is case-insensitive.
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let world = match s.to_lowercase().as_str() {
+            // Aether
             "adamantoise" => World::Adamantoise,
             "cactuar" => World::Cactuar,
             "faerie" => World::Faerie,
@@ -400,13 +441,17 @@ impl FromStr for World {
             "sargatanas" => World::Sargatanas,
             "siren" => World::Siren,
 
+            // Chaos
             "cerberus" => World::Cerberus,
             "louisoix" => World::Louisoix,
             "moogle" => World::Moogle,
             "omega" => World::Omega,
+            "phantom" => World::Phantom,
             "ragnarok" => World::Ragnarok,
+            "sagittarius" => World::Sagittarius,
             "spriggan" => World::Spriggan,
 
+            // Crystal
             "balmung" => World::Balmung,
             "brynhildr" => World::Brynhildr,
             "coeurl" => World::Coeurl,
@@ -416,17 +461,17 @@ impl FromStr for World {
             "mateus" => World::Mateus,
             "zalera" => World::Zalera,
 
+            // Elemental
             "aegis" => World::Aegis,
             "atomos" => World::Atomos,
             "carbuncle" => World::Carbuncle,
             "garuda" => World::Garuda,
             "gungnir" => World::Gungnir,
             "kujata" => World::Kujata,
-            "ramuh" => World::Ramuh,
             "tonberry" => World::Tonberry,
             "typhon" => World::Typhon,
-            "unicorn" => World::Unicorn,
 
+            // Gaia
             "alexander" => World::Alexander,
             "bahamut" => World::Bahamut,
             "durandal" => World::Durandal,
@@ -435,29 +480,28 @@ impl FromStr for World {
             "ridill" => World::Ridill,
             "tiamat" => World::Tiamat,
             "ultima" => World::Ultima,
-            "valefor" => World::Valefor,
-            "yojimbo" => World::Yojimbo,
-            "zeromus" => World::Zeromus,
 
+            // Light
+            "alpha" => World::Alpha,
             "lich" => World::Lich,
             "odin" => World::Odin,
             "phoenix" => World::Phoenix,
+            "raiden" => World::Raiden,
             "shiva" => World::Shiva,
             "twintania" => World::Twintania,
             "zodiark" => World::Zodiark,
 
+            // Mana
             "anima" => World::Anima,
             "asura" => World::Asura,
-            "belias" => World::Belias,
             "chocobo" => World::Chocobo,
             "hades" => World::Hades,
             "ixion" => World::Ixion,
-            "mandragora" => World::Mandragora,
             "masamune" => World::Masamune,
             "pandaemonium" => World::Pandaemonium,
-            "shinryu" => World::Shinryu,
             "titan" => World::Titan,
 
+            // Primal
             "behemoth" => World::Behemoth,
             "excalibur" => World::Excalibur,
             "exodus" => World::Exodus,
@@ -467,11 +511,22 @@ impl FromStr for World {
             "leviathan" => World::Leviathan,
             "ultros" => World::Ultros,
 
+            // Materia
             "bismarck" => World::Bismarck,
             "ravana" => World::Ravana,
             "sephirot" => World::Sephirot,
             "sophia" => World::Sophia,
             "zurvan" => World::Zurvan,
+
+            // Meteor
+            "belias" => World::Belias,
+            "mandragora" => World::Mandragora,
+            "ramuh" => World::Ramuh,
+            "shinryu" => World::Shinryu,
+            "unicorn" => World::Unicorn,
+            "valefor" => World::Valefor,
+            "yojimbo" => World::Yojimbo,
+            "zeromus" => World::Zeromus,
 
             _ => return Err(UnknownVariant("World", s.into()))
         };
