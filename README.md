@@ -2,7 +2,7 @@
 
 These are useful types when working with FFXIV.
 
-Up to date as of *patch 4.25*.
+Up to date as of *patch 6.18*.
 
 - `DataCenter` (feature `data_centers`)
 - `World` (feature `worlds`)
