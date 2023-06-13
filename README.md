@@ -1,5 +1,8 @@
 # ffxiv_types
 
+This is a fork from [Anna Clemens](https://git.anna.lgbt/ascclemens/ffxiv-types) in order to support CN server
+
+
 These are useful types when working with FFXIV.
 
 Up to date as of *patch 6.18*.
