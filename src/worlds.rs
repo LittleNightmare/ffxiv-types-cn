@@ -110,6 +110,12 @@ pub enum World {
     Yojimbo,
     Zeromus,
 
+    // Dynamis
+    Halicarnassus,
+    Maduin,
+    Marilith,
+    Seraph,
+
     // 陆行鸟
     晨曦王座,
     沃仙曦染,
@@ -152,7 +158,7 @@ pub enum World {
 
 impl World {
     #[cfg(feature = "all_const")]
-    pub const ALL: [World; 108] = [
+    pub const ALL: [World; 112] = [
         // Aether
         World::Adamantoise,
         World::Cactuar,
@@ -240,6 +246,11 @@ impl World {
         World::Valefor,
         World::Yojimbo,
         World::Zeromus,
+        // Dynamis
+        World::Halicarnassus,
+        World::Maduin,
+        World::Marilith,
+        World::Seraph,
         // 陆行鸟
         World::晨曦王座,
         World::沃仙曦染,
@@ -376,6 +387,12 @@ impl World {
             World::Valefor => "Valefor",
             World::Yojimbo => "Yojimbo",
             World::Zeromus => "Zeromus",
+
+            // Dynamis
+            World::Halicarnassus => "Halicarnassus",
+            World::Maduin => "Maduin",
+            World::Marilith => "Marilith",
+            World::Seraph => "Seraph",
 
             // 陆行鸟
             World::晨曦王座 => "晨曦王座",
@@ -521,6 +538,12 @@ impl World {
             | World::Valefor
             | World::Yojimbo
             | World::Zeromus => DataCenter::Meteor,
+
+            // Dynamis
+            World::Halicarnassus
+            | World::Maduin
+            | World::Marilith
+            | World::Seraph => DataCenter::Dynamis,
 
             // 陆行鸟
             World::晨曦王座
@@ -669,6 +692,12 @@ impl FromStr for World {
             "valefor" => World::Valefor,
             "yojimbo" => World::Yojimbo,
             "zeromus" => World::Zeromus,
+
+            // Dynamis
+            "halicarnassus" => World::Halicarnassus,
+            "maduin" => World::Maduin,
+            "marilith" => World::Marilith,
+            "seraph" => World::Seraph,
 
             // 陆行鸟
             "晨曦王座" => World::晨曦王座,
