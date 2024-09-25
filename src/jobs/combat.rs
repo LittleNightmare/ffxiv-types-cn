@@ -21,10 +21,12 @@ pub enum Job {
     Machinist,
     Monk,
     Ninja,
+    Pictomancer,
     Reaper,
     RedMage,
     Samurai,
     Summoner,
+    Viper,
 
     // Healer
     Astrologian,
@@ -44,7 +46,7 @@ pub enum Job {
 
 impl Job {
     #[cfg(feature = "all_const")]
-    pub const ALL: [Job; 20] = [
+    pub const ALL: [Job; 22] = [
         // DPS
         Job::Bard,
         Job::BlackMage,
@@ -53,10 +55,12 @@ impl Job {
         Job::Machinist,
         Job::Monk,
         Job::Ninja,
+        Job::Pictomancer,
         Job::Reaper,
         Job::RedMage,
         Job::Samurai,
         Job::Summoner,
+        Job::Viper,
 
         // Healer
         Job::Astrologian,
@@ -84,10 +88,12 @@ impl Job {
             Job::Machinist => "Machinist",
             Job::Monk => "Monk",
             Job::Ninja => "Ninja",
+            Job::Pictomancer => "Pictomancer",
             Job::Reaper => "Reaper",
             Job::RedMage => "RedMage",
             Job::Samurai => "Samurai",
             Job::Summoner => "Summoner",
+            Job::Viper => "Viper",
 
             Job::Astrologian => "Astrologian",
             Job::Sage => "Sage",
@@ -115,10 +121,12 @@ impl Job {
             Job::Machinist => "Machinist",
             Job::Monk => "Monk",
             Job::Ninja => "Ninja",
+            Job::Pictomancer => "Pictomancer",
             Job::Reaper => "Reaper",
             Job::RedMage => "Red Mage",
             Job::Samurai => "Samurai",
             Job::Summoner => "Summoner",
+            Job::Viper => "Viper",
 
             Job::Astrologian => "Astrologian",
             Job::Sage => "Sage",
@@ -146,10 +154,12 @@ impl Job {
             Job::Machinist => "MCH",
             Job::Monk => "MNK",
             Job::Ninja => "NIN",
+            Job::Pictomancer => "PCT",
             Job::Reaper => "RPR",
             Job::RedMage => "RDM",
             Job::Samurai => "SAM",
             Job::Summoner => "SMN",
+            Job::Viper => "VPR",
 
             Job::Astrologian => "AST",
             Job::Sage => "SGE",
@@ -176,10 +186,12 @@ impl Job {
             Job::Machinist |
             Job::Monk |
             Job::Ninja |
+            Job::Pictomancer |
             Job::Reaper |
             Job::RedMage |
             Job::Samurai |
             Job::Summoner |
+            Job::Viper |
             Job::BlueMage => Role::Dps,
 
             Job::Astrologian |
@@ -210,10 +222,12 @@ impl Job {
             Job::Reaper |
             Job::Samurai |
             Job::Warrior |
+            Job::Viper |
             Job::BlueMage => Classification::War,
 
             Job::Astrologian |
             Job::BlackMage |
+            Job::Pictomancer |
             Job::RedMage |
             Job::Sage |
             Job::Scholar |
@@ -241,10 +255,12 @@ impl FromStr for Job {
             "machinist" | "mch" => Job::Machinist,
             "monk" | "mnk" => Job::Monk,
             "ninja" | "nin" => Job::Ninja,
+            "pictomancer" | "pct" => Job::Pictomancer,
             "reaper" | "rpr" => Job::Reaper,
             "red mage" | "redmage" | "rdm" => Job::RedMage,
             "samurai" | "sam" => Job::Samurai,
             "summoner" | "smn" => Job::Summoner,
+            "viper" | "vpr" => Job::Viper,
 
             "astrologian" | "ast" => Job::Astrologian,
             "sage" | "sge" => Job::Sage,

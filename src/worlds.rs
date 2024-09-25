@@ -111,10 +111,20 @@ pub enum World {
     Zeromus,
 
     // Dynamis
+    Cuchulainn,
+    Golem,
     Halicarnassus,
+    Kraken,
     Maduin,
     Marilith,
+    Rafflesia,
     Seraph,
+
+    // Shadow
+    Innocence,
+    Pixie,
+    Titania,
+    Tycoon,
 
     // 陆行鸟
     晨曦王座,
@@ -144,7 +154,7 @@ pub enum World {
     静语庄园,
     摩杜纳,
     紫水栈桥,
-    
+
     // 豆豆柴
     红茶川,
     伊修加德,
@@ -158,7 +168,7 @@ pub enum World {
 
 impl World {
     #[cfg(feature = "all_const")]
-    pub const ALL: [World; 112] = [
+    pub const ALL: [World; 120] = [
         // Aether
         World::Adamantoise,
         World::Cactuar,
@@ -247,10 +257,19 @@ impl World {
         World::Yojimbo,
         World::Zeromus,
         // Dynamis
+        World::Cuchulainn,
+        World::Golem,
         World::Halicarnassus,
+        World::Kraken,
         World::Maduin,
         World::Marilith,
+        World::Rafflesia,
         World::Seraph,
+        // Shadow
+        World::Innocence,
+        World::Pixie,
+        World::Titania,
+        World::Tycoon,
         // 陆行鸟
         World::晨曦王座,
         World::沃仙曦染,
@@ -389,10 +408,20 @@ impl World {
             World::Zeromus => "Zeromus",
 
             // Dynamis
+            World::Cuchulainn => "Cuchulainn",
+            World::Golem => "Golem",
             World::Halicarnassus => "Halicarnassus",
+            World::Kraken => "Kraken",
             World::Maduin => "Maduin",
             World::Marilith => "Marilith",
+            World::Rafflesia => "Rafflesia",
             World::Seraph => "Seraph",
+
+            // Shadow
+            World::Innocence => "Innocence",
+            World::Pixie => "Pixie",
+            World::Titania => "Titania",
+            World::Tycoon => "Tycoon",
 
             // 陆行鸟
             World::晨曦王座 => "晨曦王座",
@@ -540,10 +569,17 @@ impl World {
             | World::Zeromus => DataCenter::Meteor,
 
             // Dynamis
-            World::Halicarnassus
+            World::Cuchulainn
+            | World::Golem
+            | World::Halicarnassus
+            | World::Kraken
             | World::Maduin
             | World::Marilith
+            | World::Rafflesia
             | World::Seraph => DataCenter::Dynamis,
+
+            // Shadow
+            World::Innocence | World::Pixie | World::Titania | World::Tycoon => DataCenter::Shadow,
 
             // 陆行鸟
             World::晨曦王座
@@ -554,7 +590,7 @@ impl World {
             | World::神意之地
             | World::幻影群岛
             | World::拉诺西亚 => DataCenter::陆行鸟,
-            
+
             // 莫古力
             World::拂晓之间
             | World::龙巢神殿
@@ -583,7 +619,6 @@ impl World {
             | World::萨雷安
             | World::加雷马
             | World::亚马乌罗提 => DataCenter::豆豆柴,
-
         }
     }
 }
@@ -694,10 +729,20 @@ impl FromStr for World {
             "zeromus" => World::Zeromus,
 
             // Dynamis
+            "cuchulainn" => World::Cuchulainn,
+            "golem" => World::Golem,
             "halicarnassus" => World::Halicarnassus,
+            "kraken" => World::Kraken,
             "maduin" => World::Maduin,
             "marilith" => World::Marilith,
+            "rafflesia" => World::Rafflesia,
             "seraph" => World::Seraph,
+
+            // Shadow
+            "innocence" => World::Innocence,
+            "pixie" => World::Pixie,
+            "titania" => World::Titania,
+            "tycoon" => World::Tycoon,
 
             // 陆行鸟
             "晨曦王座" => World::晨曦王座,
@@ -708,7 +753,7 @@ impl FromStr for World {
             "神意之地" => World::神意之地,
             "幻影群岛" => World::幻影群岛,
             "拉诺西亚" => World::拉诺西亚,
-            
+
             // 莫古力
             "拂晓之间" => World::拂晓之间,
             "龙巢神殿" => World::龙巢神殿,
@@ -727,7 +772,7 @@ impl FromStr for World {
             "静语庄园" => World::静语庄园,
             "摩杜纳" => World::摩杜纳,
             "紫水栈桥" => World::紫水栈桥,
-            
+
             // 豆豆柴
             "红茶川" => World::红茶川,
             "伊修加德" => World::伊修加德,
@@ -737,8 +782,6 @@ impl FromStr for World {
             "萨雷安" => World::萨雷安,
             "加雷马" => World::加雷马,
             "亚马乌罗提" => World::亚马乌罗提,
-
-
 
             _ => return Err(UnknownVariant("World", s.into())),
         };

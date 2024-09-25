@@ -19,6 +19,7 @@ pub enum DataCenter {
     Meteor,
     Primal,
     Dynamis,
+    Shadow,
     陆行鸟,
     莫古力,
     猫小胖,
@@ -27,7 +28,7 @@ pub enum DataCenter {
 
 impl DataCenter {
     #[cfg(feature = "all_const")]
-    pub const ALL: [DataCenter; 15] = [
+    pub const ALL: [DataCenter; 16] = [
         DataCenter::Aether,
         DataCenter::Chaos,
         DataCenter::Crystal,
@@ -39,6 +40,7 @@ impl DataCenter {
         DataCenter::Meteor,
         DataCenter::Primal,
         DataCenter::Dynamis,
+        DataCenter::Shadow,
         DataCenter::陆行鸟,
         DataCenter::莫古力,
         DataCenter::猫小胖,
@@ -58,6 +60,7 @@ impl DataCenter {
             DataCenter::Meteor => "Meteor",
             DataCenter::Primal => "Primal",
             DataCenter::Dynamis => "Dynamis",
+            DataCenter::Shadow => "Shadow",
             DataCenter::陆行鸟 => "陆行鸟",
             DataCenter::莫古力 => "莫古力",
             DataCenter::猫小胖 => "猫小胖",
@@ -87,6 +90,7 @@ impl FromStr for DataCenter {
             "meteor" => DataCenter::Meteor,
             "primal" => DataCenter::Primal,
             "dynamis" => DataCenter::Dynamis,
+            "shadow" => DataCenter::Shadow,
             "陆行鸟" => DataCenter::陆行鸟,
             "莫古力" => DataCenter::莫古力,
             "猫小胖" => DataCenter::猫小胖,
