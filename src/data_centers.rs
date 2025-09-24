@@ -24,11 +24,12 @@ pub enum DataCenter {
     莫古力,
     猫小胖,
     豆豆柴,
+    한국, // Korean
 }
 
 impl DataCenter {
     #[cfg(feature = "all_const")]
-    pub const ALL: [DataCenter; 16] = [
+    pub const ALL: [DataCenter; 17] = [
         DataCenter::Aether,
         DataCenter::Chaos,
         DataCenter::Crystal,
@@ -45,6 +46,7 @@ impl DataCenter {
         DataCenter::莫古力,
         DataCenter::猫小胖,
         DataCenter::豆豆柴,
+        DataCenter::한국, // Korean
     ];
 
     pub fn as_str(&self) -> &'static str {
@@ -65,6 +67,7 @@ impl DataCenter {
             DataCenter::莫古力 => "莫古力",
             DataCenter::猫小胖 => "猫小胖",
             DataCenter::豆豆柴 => "豆豆柴",
+            DataCenter::한국 => "한국", // Korean
         }
     }
 
@@ -95,6 +98,7 @@ impl FromStr for DataCenter {
             "莫古力" => DataCenter::莫古力,
             "猫小胖" => DataCenter::猫小胖,
             "豆豆柴" => DataCenter::豆豆柴,
+            "한국" => DataCenter::한국, // Korean
             _ => return Err(UnknownVariant("DataCenter", s.into()))
         };
 

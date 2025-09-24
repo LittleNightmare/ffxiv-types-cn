@@ -1,6 +1,6 @@
 [package]
 name = "ffxiv_types_cn"
-version = "1.10.1"
+version = "1.11.0"
 authors = ["Anna <ffxiv-types@anna.lgbt>", "Little Nightmare"]
 description = "Useful types for FFXIV-related projects"
 documentation = "https://docs.rs/ffxiv_types"

@@ -164,11 +164,18 @@ pub enum World {
     萨雷安,
     加雷马,
     亚马乌罗提,
+
+    // Korean
+    펜리르,
+    카벙클,
+    톤베리,
+    초코보,
+    모그리,
 }
 
 impl World {
     #[cfg(feature = "all_const")]
-    pub const ALL: [World; 120] = [
+    pub const ALL: [World; 125] = [
         // Aether
         World::Adamantoise,
         World::Cactuar,
@@ -305,6 +312,12 @@ impl World {
         World::萨雷安,
         World::加雷马,
         World::亚马乌罗提,
+        // Korean
+        World::펜리르,
+        World::카벙클,
+        World::톤베리,
+        World::초코보,
+        World::모그리
     ];
 
     /// Returns the string variant of this world.
@@ -461,6 +474,13 @@ impl World {
             World::萨雷安 => "萨雷安",
             World::加雷马 => "加雷马",
             World::亚马乌罗提 => "亚马乌罗提",
+
+            // Korean
+            World::펜리르 => "펜리르",
+            World::카벙클 => "카벙클",
+            World::톤베리 => "톤베리",
+            World::초코보 => "초코보",
+            World::모그리 => "모그리",
         }
     }
 
@@ -619,6 +639,14 @@ impl World {
             | World::萨雷安
             | World::加雷马
             | World::亚马乌罗提 => DataCenter::豆豆柴,
+
+            // Korean
+            World::펜리르
+            | World::카벙클
+            | World::톤베리
+            | World::초코보
+            | World::모그리 => DataCenter::한국, // Korean
+
         }
     }
 }
@@ -782,6 +810,13 @@ impl FromStr for World {
             "萨雷安" => World::萨雷安,
             "加雷马" => World::加雷马,
             "亚马乌罗提" => World::亚马乌罗提,
+
+            // Korean
+            "펜리르" => World::펜리르,
+            "카벙클" => World::카벙클,
+            "톤베리" => World::톤베리,
+            "초코보" => World::초코보,
+            "모그리" => World::모그리,
 
             _ => return Err(UnknownVariant("World", s.into())),
         };
