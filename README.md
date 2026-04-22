@@ -1,6 +1,6 @@
 # ffxiv_types
 
-This is a fork from [Anna Clemens](https://git.anna.lgbt/ascclemens/ffxiv-types) in order to support CN server
+This is a fork from [Anna Clemens](https://git.anna.lgbt/ascclemens/ffxiv-types) in order to support CN and Traditional Chinese servers
 
 
 These are useful types when working with FFXIV.

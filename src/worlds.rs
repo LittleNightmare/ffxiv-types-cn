@@ -165,6 +165,16 @@ pub enum World {
     加雷马,
     亚马乌罗提,
 
+    // 陸行鳥
+    伊弗利特,
+    迦樓羅,
+    利維坦,
+    鳳凰,
+    奧汀,
+    巴哈姆特,
+    拉姆,
+    泰坦,
+
     // Korean
     펜리르,
     카벙클,
@@ -175,7 +185,7 @@ pub enum World {
 
 impl World {
     #[cfg(feature = "all_const")]
-    pub const ALL: [World; 125] = [
+    pub const ALL: [World; 133] = [
         // Aether
         World::Adamantoise,
         World::Cactuar,
@@ -312,12 +322,21 @@ impl World {
         World::萨雷安,
         World::加雷马,
         World::亚马乌罗提,
+        // 陸行鳥
+        World::伊弗利特,
+        World::迦樓羅,
+        World::利維坦,
+        World::鳳凰,
+        World::奧汀,
+        World::巴哈姆特,
+        World::拉姆,
+        World::泰坦,
         // Korean
         World::펜리르,
         World::카벙클,
         World::톤베리,
         World::초코보,
-        World::모그리
+        World::모그리,
     ];
 
     /// Returns the string variant of this world.
@@ -474,6 +493,16 @@ impl World {
             World::萨雷安 => "萨雷安",
             World::加雷马 => "加雷马",
             World::亚马乌罗提 => "亚马乌罗提",
+
+            // 陸行鳥
+            World::伊弗利特 => "伊弗利特",
+            World::迦樓羅 => "迦樓羅",
+            World::利維坦 => "利維坦",
+            World::鳳凰 => "鳳凰",
+            World::奧汀 => "奧汀",
+            World::巴哈姆特 => "巴哈姆特",
+            World::拉姆 => "拉姆",
+            World::泰坦 => "泰坦",
 
             // Korean
             World::펜리르 => "펜리르",
@@ -640,13 +669,20 @@ impl World {
             | World::加雷马
             | World::亚马乌罗提 => DataCenter::豆豆柴,
 
-            // Korean
-            World::펜리르
-            | World::카벙클
-            | World::톤베리
-            | World::초코보
-            | World::모그리 => DataCenter::한국, // Korean
+            // 陸行鳥
+            World::伊弗利特
+            | World::迦樓羅
+            | World::利維坦
+            | World::鳳凰
+            | World::奧汀
+            | World::巴哈姆特
+            | World::拉姆
+            | World::泰坦 => DataCenter::陸行鳥,
 
+            // Korean
+            World::펜리르 | World::카벙클 | World::톤베리 | World::초코보 | World::모그리 => {
+                DataCenter::한국
+            } // Korean
         }
     }
 }
@@ -810,6 +846,16 @@ impl FromStr for World {
             "萨雷安" => World::萨雷安,
             "加雷马" => World::加雷马,
             "亚马乌罗提" => World::亚马乌罗提,
+
+            // 陸行鳥
+            "伊弗利特" => World::伊弗利特,
+            "迦樓羅" => World::迦樓羅,
+            "利維坦" => World::利維坦,
+            "鳳凰" => World::鳳凰,
+            "奧汀" => World::奧汀,
+            "巴哈姆特" => World::巴哈姆特,
+            "拉姆" => World::拉姆,
+            "泰坦" => World::泰坦,
 
             // Korean
             "펜리르" => World::펜리르,

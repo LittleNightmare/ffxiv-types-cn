@@ -21,6 +21,7 @@ pub enum DataCenter {
     Dynamis,
     Shadow,
     陆行鸟,
+    陸行鳥,
     莫古力,
     猫小胖,
     豆豆柴,
@@ -29,7 +30,7 @@ pub enum DataCenter {
 
 impl DataCenter {
     #[cfg(feature = "all_const")]
-    pub const ALL: [DataCenter; 17] = [
+    pub const ALL: [DataCenter; 18] = [
         DataCenter::Aether,
         DataCenter::Chaos,
         DataCenter::Crystal,
@@ -43,6 +44,7 @@ impl DataCenter {
         DataCenter::Dynamis,
         DataCenter::Shadow,
         DataCenter::陆行鸟,
+        DataCenter::陸行鳥,
         DataCenter::莫古力,
         DataCenter::猫小胖,
         DataCenter::豆豆柴,
@@ -64,6 +66,7 @@ impl DataCenter {
             DataCenter::Dynamis => "Dynamis",
             DataCenter::Shadow => "Shadow",
             DataCenter::陆行鸟 => "陆行鸟",
+            DataCenter::陸行鳥 => "陸行鳥",
             DataCenter::莫古力 => "莫古力",
             DataCenter::猫小胖 => "猫小胖",
             DataCenter::豆豆柴 => "豆豆柴",
@@ -95,11 +98,12 @@ impl FromStr for DataCenter {
             "dynamis" => DataCenter::Dynamis,
             "shadow" => DataCenter::Shadow,
             "陆行鸟" => DataCenter::陆行鸟,
+            "陸行鳥" => DataCenter::陸行鳥,
             "莫古力" => DataCenter::莫古力,
             "猫小胖" => DataCenter::猫小胖,
             "豆豆柴" => DataCenter::豆豆柴,
             "한국" => DataCenter::한국, // Korean
-            _ => return Err(UnknownVariant("DataCenter", s.into()))
+            _ => return Err(UnknownVariant("DataCenter", s.into())),
         };
 
         Ok(data_center)
