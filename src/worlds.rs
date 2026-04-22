@@ -161,8 +161,6 @@ pub enum World {
     太阳海岸,
     银泪湖,
     水晶塔,
-    萨雷安,
-    加雷马,
     亚马乌罗提,
 
     // 陸行鳥
@@ -185,7 +183,7 @@ pub enum World {
 
 impl World {
     #[cfg(feature = "all_const")]
-    pub const ALL: [World; 133] = [
+    pub const ALL: [World; 131] = [
         // Aether
         World::Adamantoise,
         World::Cactuar,
@@ -319,8 +317,6 @@ impl World {
         World::太阳海岸,
         World::银泪湖,
         World::水晶塔,
-        World::萨雷安,
-        World::加雷马,
         World::亚马乌罗提,
         // 陸行鳥
         World::伊弗利特,
@@ -490,8 +486,6 @@ impl World {
             World::太阳海岸 => "太阳海岸",
             World::银泪湖 => "银泪湖",
             World::水晶塔 => "水晶塔",
-            World::萨雷安 => "萨雷安",
-            World::加雷马 => "加雷马",
             World::亚马乌罗提 => "亚马乌罗提",
 
             // 陸行鳥
@@ -665,8 +659,6 @@ impl World {
             | World::太阳海岸
             | World::银泪湖
             | World::水晶塔
-            | World::萨雷安
-            | World::加雷马
             | World::亚马乌罗提 => DataCenter::豆豆柴,
 
             // 陸行鳥
@@ -843,8 +835,6 @@ impl FromStr for World {
             "太阳海岸" => World::太阳海岸,
             "银泪湖" => World::银泪湖,
             "水晶塔" => World::水晶塔,
-            "萨雷安" => World::萨雷安,
-            "加雷马" => World::加雷马,
             "亚马乌罗提" => World::亚马乌罗提,
 
             // 陸行鳥
