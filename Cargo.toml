@@ -1,9 +1,9 @@
 [package]
 name = "ffxiv_types_cn"
-version = "1.11.0"
+version = "1.12.0"
 authors = ["Anna <ffxiv-types@anna.lgbt>", "Little Nightmare"]
-description = "Useful types for FFXIV-related projects"
-documentation = "https://docs.rs/ffxiv_types"
+description = "Useful types for FFXIV-related projects with CN and Traditional Chinese server support"
+documentation = "https://docs.rs/ffxiv_types_cn"
 repository = "https://github.com/LittleNightmare/ffxiv_types_cn"
 license = "MIT"
 
