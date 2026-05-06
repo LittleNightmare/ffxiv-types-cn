@@ -61,19 +61,16 @@ impl Job {
         Job::Samurai,
         Job::Summoner,
         Job::Viper,
-
         // Healer
         Job::Astrologian,
         Job::Sage,
         Job::Scholar,
         Job::WhiteMage,
-
         // Tank
         Job::DarkKnight,
         Job::Gunbreaker,
         Job::Paladin,
         Job::Warrior,
-
         // Limited
         Job::BlueMage,
     ];
@@ -179,30 +176,24 @@ impl Job {
     #[cfg(feature = "roles")]
     pub fn role(&self) -> Role {
         match *self {
-            Job::Bard |
-            Job::BlackMage |
-            Job::Dancer |
-            Job::Dragoon |
-            Job::Machinist |
-            Job::Monk |
-            Job::Ninja |
-            Job::Pictomancer |
-            Job::Reaper |
-            Job::RedMage |
-            Job::Samurai |
-            Job::Summoner |
-            Job::Viper |
-            Job::BlueMage => Role::Dps,
+            Job::Bard
+            | Job::BlackMage
+            | Job::Dancer
+            | Job::Dragoon
+            | Job::Machinist
+            | Job::Monk
+            | Job::Ninja
+            | Job::Pictomancer
+            | Job::Reaper
+            | Job::RedMage
+            | Job::Samurai
+            | Job::Summoner
+            | Job::Viper
+            | Job::BlueMage => Role::Dps,
 
-            Job::Astrologian |
-            Job::Sage |
-            Job::Scholar |
-            Job::WhiteMage => Role::Healer,
+            Job::Astrologian | Job::Sage | Job::Scholar | Job::WhiteMage => Role::Healer,
 
-            Job::DarkKnight |
-            Job::Gunbreaker |
-            Job::Paladin |
-            Job::Warrior => Role::Tank,
+            Job::DarkKnight | Job::Gunbreaker | Job::Paladin | Job::Warrior => Role::Tank,
         }
     }
 
@@ -210,29 +201,29 @@ impl Job {
     #[cfg(feature = "job_classifications")]
     pub fn classification(&self) -> Classification {
         match *self {
-            Job::Bard |
-            Job::Dancer |
-            Job::DarkKnight |
-            Job::Dragoon |
-            Job::Gunbreaker |
-            Job::Machinist |
-            Job::Monk |
-            Job::Ninja |
-            Job::Paladin |
-            Job::Reaper |
-            Job::Samurai |
-            Job::Warrior |
-            Job::Viper |
-            Job::BlueMage => Classification::War,
+            Job::Bard
+            | Job::Dancer
+            | Job::DarkKnight
+            | Job::Dragoon
+            | Job::Gunbreaker
+            | Job::Machinist
+            | Job::Monk
+            | Job::Ninja
+            | Job::Paladin
+            | Job::Reaper
+            | Job::Samurai
+            | Job::Warrior
+            | Job::Viper => Classification::War,
 
-            Job::Astrologian |
-            Job::BlackMage |
-            Job::Pictomancer |
-            Job::RedMage |
-            Job::Sage |
-            Job::Scholar |
-            Job::Summoner |
-            Job::WhiteMage => Classification::Magic,
+            Job::Astrologian
+            | Job::BlackMage
+            | Job::Pictomancer
+            | Job::RedMage
+            | Job::Sage
+            | Job::Scholar
+            | Job::Summoner
+            | Job::WhiteMage
+            | Job::BlueMage => Classification::Magic,
         }
     }
 }
@@ -274,7 +265,7 @@ impl FromStr for Job {
 
             "blue mage" | "bluemage" | "blu" => Job::BlueMage,
 
-            _ => return Err(UnknownVariant("Job", s.into()))
+            _ => return Err(UnknownVariant("Job", s.into())),
         };
 
         Ok(job)
@@ -368,8 +359,7 @@ impl Class {
 
             Self::Conjurer => Role::Healer,
 
-            Self::Gladiator
-            | Self::Marauder => Role::Tank,
+            Self::Gladiator | Self::Marauder => Role::Tank,
         }
     }
 
@@ -384,9 +374,7 @@ impl Class {
             | Self::Gladiator
             | Self::Marauder => Classification::War,
 
-            Self::Arcanist
-            | Self::Thaumaturge
-            | Self::Conjurer => Classification::Magic,
+            Self::Arcanist | Self::Thaumaturge | Self::Conjurer => Classification::Magic,
         }
     }
 }
