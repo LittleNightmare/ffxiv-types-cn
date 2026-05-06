@@ -42,11 +42,12 @@ pub enum Job {
 
     // Limited
     BlueMage,
+    Beastmaster,
 }
 
 impl Job {
     #[cfg(feature = "all_const")]
-    pub const ALL: [Job; 22] = [
+    pub const ALL: [Job; 23] = [
         // DPS
         Job::Bard,
         Job::BlackMage,
@@ -73,6 +74,7 @@ impl Job {
         Job::Warrior,
         // Limited
         Job::BlueMage,
+        Job::Beastmaster,
     ];
 
     /// Returns the string representation of this variant.
@@ -103,6 +105,7 @@ impl Job {
             Job::Warrior => "Warrior",
 
             Job::BlueMage => "BlueMage",
+            Job::Beastmaster => "Beastmaster",
         }
     }
 
@@ -136,6 +139,7 @@ impl Job {
             Job::Warrior => "Warrior",
 
             Job::BlueMage => "Blue Mage",
+            Job::Beastmaster => "Beastmaster",
         }
     }
 
@@ -169,6 +173,7 @@ impl Job {
             Job::Warrior => "WAR",
 
             Job::BlueMage => "BLU",
+            Job::Beastmaster => "BST",
         }
     }
 
@@ -189,7 +194,8 @@ impl Job {
             | Job::Samurai
             | Job::Summoner
             | Job::Viper
-            | Job::BlueMage => Role::Dps,
+            | Job::BlueMage
+            | Job::Beastmaster => Role::Dps,
 
             Job::Astrologian | Job::Sage | Job::Scholar | Job::WhiteMage => Role::Healer,
 
@@ -213,7 +219,8 @@ impl Job {
             | Job::Reaper
             | Job::Samurai
             | Job::Warrior
-            | Job::Viper => Classification::War,
+            | Job::Viper
+            | Job::Beastmaster => Classification::War,
 
             Job::Astrologian
             | Job::BlackMage
@@ -264,6 +271,7 @@ impl FromStr for Job {
             "warrior" | "war" => Job::Warrior,
 
             "blue mage" | "bluemage" | "blu" => Job::BlueMage,
+            "beast master" | "beastmaster" | "bst" => Job::Beastmaster,
 
             _ => return Err(UnknownVariant("Job", s.into())),
         };
